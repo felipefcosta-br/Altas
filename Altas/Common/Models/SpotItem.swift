@@ -6,13 +6,14 @@
 //
 
 import Foundation
-class SpotItem: NSObject, Codable {
+struct SpotItem: Codable {
     var id: String!
     var name: String?
     var address: String?
     var city: String?
     var state: String?
     var country: String?
-    var coods: String?
+    var coords: Coordinate?
     
 }
+

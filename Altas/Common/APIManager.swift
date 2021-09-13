@@ -58,6 +58,17 @@ struct APIManager {
         }
     }
     
+    static func spotsForecast(fromJSON data: Data) -> Result<[SpotForecastItem], Error> {
+        do {
+            let decoder = JSONDecoder()
+            print("teste json - \(String(describing: String(data: data, encoding: String.Encoding.utf8)))")
+            let spotResponse = try decoder.decode([SpotForecastItem].self, from: data)
+            return .success(spotResponse)
+        } catch {
+            return .failure(error)
+        }
+    }
+    
     private static func apiURL(endpoint: Endpoint, parameter: String? = nil) -> URL{
         
         var components = URLComponents(string: baseURL)!

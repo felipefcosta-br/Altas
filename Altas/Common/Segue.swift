@@ -12,4 +12,5 @@ enum Segue: String {
     case showFavoritiesSpots
     case showLogin
     case showSignUp
+    case showSpotFromSearch
 }

@@ -34,6 +34,19 @@ class SpotSerachViewController: UIViewController {
         //navigationItem.searchController = searchController
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        switch segue.identifier {
+        case Segue.showSpotFromSearch.rawValue:
+            if let indexPath = resultTableView.indexPathForSelectedRow {
+                let spot = manager.spotsItem(at: indexPath)
+                let spotForecast = segue.destination as! SpotForecastTableViewController
+                spotForecast.spotId = spot.id
+            }
+        default:
+            preconditionFailure("Segue identifier is not valid")
+        }
+    }
+    
     @objc func dismissKeyboard(_ sender: UITapGestureRecognizer) {
         view.endEditing(true)
     }

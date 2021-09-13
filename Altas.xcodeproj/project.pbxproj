@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		A7E9D0124F92B6986C245EF2 /* Pods_Altas.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B7C6287BF972A6D3CA2DB78 /* Pods_Altas.framework */; };
 		BC148FD326CC552F0023C37C /* SpotSerachViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC148FD226CC552F0023C37C /* SpotSerachViewController.swift */; };
+		BC274AA926EE549900968521 /* SpotForecastDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC274AA826EE549900968521 /* SpotForecastDataManager.swift */; };
+		BC274AAD26EE979700968521 /* Coordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC274AAC26EE979700968521 /* Coordinate.swift */; };
 		BC4828FF26CEB1040085F6D6 /* SignupManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4828FE26CEB1040085F6D6 /* SignupManager.swift */; };
 		BC4A208526D397F30065168C /* Segue.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4A208426D397F30065168C /* Segue.swift */; };
 		BC4A208726D3B1930065168C /* LoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4A208626D3B1920065168C /* LoginManager.swift */; };
@@ -25,7 +27,7 @@
 		BC6F307D26E762AE00DA3A73 /* UserItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6F307C26E762AE00DA3A73 /* UserItem.swift */; };
 		BC6F307F26E7836600DA3A73 /* UserAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6F307E26E7836600DA3A73 /* UserAPIManager.swift */; };
 		BC6FC4D826D2573E008F2953 /* FavoriteSpotTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6FC4D726D2573E008F2953 /* FavoriteSpotTableViewCell.swift */; };
-		BC6FC4DC26D25974008F2953 /* SpotDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6FC4DB26D25974008F2953 /* SpotDetailTableViewController.swift */; };
+		BC6FC4DC26D25974008F2953 /* SpotForecastTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6FC4DB26D25974008F2953 /* SpotForecastTableViewController.swift */; };
 		BC6FC4DF26D25CF6008F2953 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6FC4DE26D25CF6008F2953 /* LoginViewController.swift */; };
 		BC77163B26DAE91F00E046A1 /* NoDataView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC77163A26DAE91F00E046A1 /* NoDataView.xib */; };
 		BC77163D26DAE9EC00E046A1 /* NoDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC77163C26DAE9EC00E046A1 /* NoDataView.swift */; };
@@ -37,9 +39,10 @@
 		BCC621FE26EA0A9E003A1EE5 /* SpotAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC621FD26EA0A9E003A1EE5 /* SpotAPIManager.swift */; };
 		BCC6220026EA136B003A1EE5 /* SpotsSerachDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC621FF26EA136B003A1EE5 /* SpotsSerachDataManager.swift */; };
 		BCC6220226EA2474003A1EE5 /* SpotSearchedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC6220126EA2474003A1EE5 /* SpotSearchedCell.swift */; };
-		BCCB96FF26EA780C00B2740B /* CompSpotItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCB96FE26EA780C00B2740B /* CompSpotItem.swift */; };
+		BCCB96FF26EA780C00B2740B /* SpotForecastItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCB96FE26EA780C00B2740B /* SpotForecastItem.swift */; };
 		BCDAA31026E89488006814F2 /* ResponseItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCDAA30F26E89488006814F2 /* ResponseItem.swift */; };
 		BCE2FF7126CD06C9002D549D /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE2FF7026CD06C9002D549D /* SignupViewController.swift */; };
+		BCF8529E26EF55DB00DD5F7C /* IntercardinalPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF8529D26EF55DB00DD5F7C /* IntercardinalPoints.swift */; };
 		BCFEF05726CE473900EA8393 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BCFEF05626CE473900EA8393 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
@@ -48,6 +51,8 @@
 		2B7C6287BF972A6D3CA2DB78 /* Pods_Altas.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Altas.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9482D26E2A384AA1DFC3E4EB /* Pods-Altas.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Altas.debug.xcconfig"; path = "Target Support Files/Pods-Altas/Pods-Altas.debug.xcconfig"; sourceTree = "<group>"; };
 		BC148FD226CC552F0023C37C /* SpotSerachViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotSerachViewController.swift; sourceTree = "<group>"; };
+		BC274AA826EE549900968521 /* SpotForecastDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotForecastDataManager.swift; sourceTree = "<group>"; };
+		BC274AAC26EE979700968521 /* Coordinate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinate.swift; sourceTree = "<group>"; };
 		BC4828FE26CEB1040085F6D6 /* SignupManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupManager.swift; sourceTree = "<group>"; };
 		BC4A208426D397F30065168C /* Segue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Segue.swift; sourceTree = "<group>"; };
 		BC4A208626D3B1920065168C /* LoginManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginManager.swift; sourceTree = "<group>"; };
@@ -66,7 +71,7 @@
 		BC6F307C26E762AE00DA3A73 /* UserItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserItem.swift; sourceTree = "<group>"; };
 		BC6F307E26E7836600DA3A73 /* UserAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAPIManager.swift; sourceTree = "<group>"; };
 		BC6FC4D726D2573E008F2953 /* FavoriteSpotTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteSpotTableViewCell.swift; sourceTree = "<group>"; };
-		BC6FC4DB26D25974008F2953 /* SpotDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotDetailTableViewController.swift; sourceTree = "<group>"; };
+		BC6FC4DB26D25974008F2953 /* SpotForecastTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotForecastTableViewController.swift; sourceTree = "<group>"; };
 		BC6FC4DE26D25CF6008F2953 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		BC77163A26DAE91F00E046A1 /* NoDataView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoDataView.xib; sourceTree = "<group>"; };
 		BC77163C26DAE9EC00E046A1 /* NoDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoDataView.swift; sourceTree = "<group>"; };
@@ -78,9 +83,10 @@
 		BCC621FD26EA0A9E003A1EE5 /* SpotAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotAPIManager.swift; sourceTree = "<group>"; };
 		BCC621FF26EA136B003A1EE5 /* SpotsSerachDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotsSerachDataManager.swift; sourceTree = "<group>"; };
 		BCC6220126EA2474003A1EE5 /* SpotSearchedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotSearchedCell.swift; sourceTree = "<group>"; };
-		BCCB96FE26EA780C00B2740B /* CompSpotItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompSpotItem.swift; sourceTree = "<group>"; };
+		BCCB96FE26EA780C00B2740B /* SpotForecastItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotForecastItem.swift; sourceTree = "<group>"; };
 		BCDAA30F26E89488006814F2 /* ResponseItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseItem.swift; sourceTree = "<group>"; };
 		BCE2FF7026CD06C9002D549D /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
+		BCF8529D26EF55DB00DD5F7C /* IntercardinalPoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntercardinalPoints.swift; sourceTree = "<group>"; };
 		BCFEF05626CE473900EA8393 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -172,6 +178,7 @@
 				BC4A208426D397F30065168C /* Segue.swift */,
 				BCBA55C326E753DD0065232D /* APIManager.swift */,
 				BCBA55C526E754590065232D /* Endpoint.swift */,
+				BCF8529D26EF55DB00DD5F7C /* IntercardinalPoints.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -234,7 +241,7 @@
 				BCB3E61626D3F9C500150945 /* Extensions */,
 				BC6FC4D126D2544F008F2953 /* Map */,
 				BC4828F426CEAA050085F6D6 /* Common */,
-				BCE2FF6A26CCF9A3002D549D /* SpotDetails */,
+				BCE2FF6A26CCF9A3002D549D /* SpotForecast */,
 				BC148FCE26CC53BC0023C37C /* SpotSearch */,
 				BC148FC426CC3CF30023C37C /* FavoritesSpots */,
 				BC676FD726C7BF3F004CD02F /* SignUp */,
@@ -346,6 +353,7 @@
 		BC6FC4D926D2586E008F2953 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				BC274AA826EE549900968521 /* SpotForecastDataManager.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -353,7 +361,7 @@
 		BC6FC4DA26D2588A008F2953 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				BC6FC4DB26D25974008F2953 /* SpotDetailTableViewController.swift */,
+				BC6FC4DB26D25974008F2953 /* SpotForecastTableViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -397,19 +405,20 @@
 				BC6F307E26E7836600DA3A73 /* UserAPIManager.swift */,
 				BCC621FD26EA0A9E003A1EE5 /* SpotAPIManager.swift */,
 				BCC621FB26EA0964003A1EE5 /* SpotItem.swift */,
-				BCCB96FE26EA780C00B2740B /* CompSpotItem.swift */,
+				BCCB96FE26EA780C00B2740B /* SpotForecastItem.swift */,
+				BC274AAC26EE979700968521 /* Coordinate.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
 		};
-		BCE2FF6A26CCF9A3002D549D /* SpotDetails */ = {
+		BCE2FF6A26CCF9A3002D549D /* SpotForecast */ = {
 			isa = PBXGroup;
 			children = (
 				BC6FC4DA26D2588A008F2953 /* Controllers */,
 				BCE2FF6B26CCF9D7002D549D /* Views */,
 				BC6FC4D926D2586E008F2953 /* Models */,
 			);
-			path = SpotDetails;
+			path = SpotForecast;
 			sourceTree = "<group>";
 		};
 		BCE2FF6B26CCF9D7002D549D /* Views */ = {
@@ -555,7 +564,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BCCB96FF26EA780C00B2740B /* CompSpotItem.swift in Sources */,
+				BCCB96FF26EA780C00B2740B /* SpotForecastItem.swift in Sources */,
 				BC5713EF26CD5D840030D8E7 /* Validator.swift in Sources */,
 				BCBA55C426E753DD0065232D /* APIManager.swift in Sources */,
 				BCE2FF7126CD06C9002D549D /* SignupViewController.swift in Sources */,
@@ -565,9 +574,12 @@
 				BC4A208526D397F30065168C /* Segue.swift in Sources */,
 				BC77163D26DAE9EC00E046A1 /* NoDataView.swift in Sources */,
 				BC58A90F26D8483800758FD4 /* InitLoadViewController.swift in Sources */,
-				BC6FC4DC26D25974008F2953 /* SpotDetailTableViewController.swift in Sources */,
+				BC274AA926EE549900968521 /* SpotForecastDataManager.swift in Sources */,
+				BC6FC4DC26D25974008F2953 /* SpotForecastTableViewController.swift in Sources */,
 				BC6F307D26E762AE00DA3A73 /* UserItem.swift in Sources */,
+				BCF8529E26EF55DB00DD5F7C /* IntercardinalPoints.swift in Sources */,
 				BCDAA31026E89488006814F2 /* ResponseItem.swift in Sources */,
+				BC274AAD26EE979700968521 /* Coordinate.swift in Sources */,
 				BCB3E61826D3FA0000150945 /* UITextField+Altas.swift in Sources */,
 				BC676FBE26C7BB60004CD02F /* AppDelegate.swift in Sources */,
 				BCC6220226EA2474003A1EE5 /* SpotSearchedCell.swift in Sources */,
