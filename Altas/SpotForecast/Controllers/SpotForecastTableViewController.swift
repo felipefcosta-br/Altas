@@ -29,6 +29,32 @@ class SpotForecastTableViewController: UITableViewController {
     
     let manager = SpotForecastDataManager()
     
+    let zeroDigitsFormatter: NumberFormatter = {
+        let nf = NumberFormatter()
+        nf.numberStyle = .decimal
+        nf.minimumFractionDigits = 0
+        nf.maximumFractionDigits = 0
+        return nf
+    }()
+    
+    let oneDigitsFormatter: NumberFormatter = {
+        let nf = NumberFormatter()
+        nf.numberStyle = .decimal
+        nf.minimumFractionDigits = 0
+        nf.maximumFractionDigits = 1
+        return nf
+    }()
+    
+    let twoDigitsFormatter: NumberFormatter = {
+        let nf = NumberFormatter()
+        nf.numberStyle = .decimal
+        nf.minimumFractionDigits = 0
+        nf.maximumFractionDigits = 2
+        return nf
+    }()
+    
+    
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setupFavoriteBarButton()
@@ -68,24 +94,72 @@ class SpotForecastTableViewController: UITableViewController {
         }
         spotNameLabel.text = spot.name
         spotCityLabel.text = spot.city
-        waveSizeLabel.text = "\(spot.waveHeight?.noaa ?? 0.0)M"
+        
+        let waveHeight = oneDigitsFormatter.string(from: NSNumber(value: spot.waveHeight?.noaa ?? 0.0))
+        waveSizeLabel.text = "\(waveHeight!)"
         swellDirectionLabel.text =
             convertDecimalDegreestoCompassPoints(degrees: (spot.swellDirection?.noaa)!)
-        periodLabel.text = "\(spot.wavePeriod?.noaa ?? 0.0)"
-        waterTemperatureLabel.text = "\(spot.waterTemperature?.noaa ?? 0)°C"
-        windSpeedLabel.text = "\(spot.windSpeed?.noaa ?? 0)"
+        
+        let wavePeriod = oneDigitsFormatter.string(from: NSNumber(value: spot.wavePeriod?.noaa ?? 0.0))
+        periodLabel.text = "\(wavePeriod!)"
+        
+        let waterTemp = zeroDigitsFormatter.string(from: NSNumber(value: spot.waterTemperature?.noaa ?? 0.0))
+        waterTemperatureLabel.text = "\(waterTemp!)"
+        
+        let windSpeed = oneDigitsFormatter.string(from: NSNumber(value: spot.windSpeed?.noaa ?? 0.0))
+        windSpeedLabel.text = "\(windSpeed!)"
         windDirectionLabel.text = convertDecimalDegreestoCompassPoints(degrees: (spot.windDirection?.noaa)!)
         
-        spot.highTide?.forEach({ tide in
-            let label = UILabel()
-            let teste = Double(tide.height ?? 00)
-            label.text = "\(teste) - \(String(describing: tide.time))"
-            label.textColor = UIColor(named: "darkGray-altas")
+        spot.highTide?.forEach({ tideItem in
             
-            print("teste tide \(teste)")
+            let tide = formatSpotTide(tideItem: tideItem)
+            
+            let label = UILabel()
+            label.textColor = UIColor(named: "darkGray-altas")
+            label.numberOfLines = 2
+            label.text = tide
             highTideStackView.addArrangedSubview(label)
         })
+        
+        spot.lowTide?.forEach({ tideItem in
+            
+            let tide = formatSpotTide(tideItem: tideItem)
+            print(tide)
+            
+            let label = UILabel()
+            label.textColor = UIColor(named: "darkGray-altas")
+            label.numberOfLines = 2
+            label.text = tide
+            lowTideStackView.addArrangedSubview(label)
+        })
+        
+        
 
+    }
+    
+    private func formatSpotTide(tideItem: Tide) -> String{
+        guard let tideHeightOpt = tideItem.height,
+              let tideTimeOpt = tideItem.time else {
+            return ""
+        }
+        
+        let tideHeightDec = twoDigitsFormatter.string(from: NSNumber(value: tideHeightOpt))
+        
+        let timeFormatter = DateFormatter()
+        timeFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZZZ"
+        
+        let dateTide = timeFormatter.date(from: tideTimeOpt)
+        
+        let calendar = Calendar.current
+        let hour = calendar.component(.hour, from: dateTide!)
+        let minutes = calendar.component(.minute, from: dateTide!)
+        
+        guard let tideHeight =  Double(tideHeightDec!) else {
+            return ""
+        }
+        
+        return "\(tideHeight)m - \(hour):\(minutes)"
+        
     }
     
     private func convertDecimalDegreestoCompassPoints(degrees: Double) -> String{
