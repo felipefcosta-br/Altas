@@ -11,6 +11,7 @@ import FirebaseAuth
 class LoginViewController: UIViewController {
     
     var handle: AuthStateDidChangeListenerHandle!
+    let manager = LoginManager()
 
     @IBOutlet var emailTextField: UITextField!
     @IBOutlet var emailMessageLabel: UILabel!
@@ -105,6 +106,8 @@ private extension LoginViewController{
                     print("Error: \(error.localizedDescription)")
                 }
                 self.showErrorAlerts(message: errorMessage)
+            }else{
+                self.manager.getUserData()
             }
         }
         

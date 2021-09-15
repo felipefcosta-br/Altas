@@ -8,15 +8,17 @@
 import UIKit
 
 struct UserItem: Codable{
+    let id: String?
     let name: String?
     let email: String?
     let city: String?
-    let userId: String?
+    let authUserId: String?
     
     enum CodingKeys: String, CodingKey {
+        case id
         case name
         case email
         case city
-        case userId
+        case authUserId
     }
 }

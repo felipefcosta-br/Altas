@@ -26,6 +26,45 @@ class SpotForecastDataManager{
         }
     }
     
+    func addFavoriteSpot(spot: SpotForecastItem, userId: String,
+                         completion: @escaping (FavoriteSpotItem?, Error?) -> Void){
+        
+        let favoriteSpot = FavoriteSpotItem(
+            spotId: spot.id,
+            fireUserId: userId,
+            spotName: spot.name,
+            address: spot.address,
+            city: spot.city,
+            state: spot.state,
+            country: spot.country,
+            coords: spot.coords)
+        
+        FavoriteSpotAPIManager.shared.fetchPostFavoriteSpot(by: favoriteSpot) {
+            (favoriteSpotResult) in
+            
+            switch favoriteSpotResult {
+            case let .success(favSpot):
+                completion(favSpot.first, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+    
+    func deleteFavoriteSpot(userId: String, favoriteSpotId: String, completion: @escaping (MessageResponseItem?, Error?) -> Void){
+        FavoriteSpotAPIManager.shared.fetchDeleteFavoriteSpot(by: favoriteSpotId, fireUserId: userId) {
+            (deleteFavoriteSpotResult) in
+            
+            switch deleteFavoriteSpotResult {
+            case let .success(message):
+                completion(message.first, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+            
+        }
+    }
+    
     func spotItem() -> SpotForecastItem {
         return spot
     }

@@ -1,20 +1,17 @@
 //
-//  ResponseItem.swift
+//  MessageItem.swift
 //  Altas
 //
-//  Created by user198265 on 9/8/21.
+//  Created by user198265 on 9/15/21.
 //
 
 import Foundation
-
-struct UserResponseItem: Codable {
+struct MessageResponseItem: Codable {
     let status: String
     let message: String
-    let data: UserItem
     
     enum CodingKeys: CodingKey {
         case status
         case message
-        case data
     }
 }

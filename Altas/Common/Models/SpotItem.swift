@@ -13,7 +13,6 @@ struct SpotItem: Codable {
     var city: String?
     var state: String?
     var country: String?
-    var coords: Coordinate?
-    
+    var coords: Coordinate?    
 }
 

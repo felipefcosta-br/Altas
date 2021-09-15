@@ -17,8 +17,6 @@ class SpotForecastTableViewController: UITableViewController {
     @IBOutlet var waterTemperatureLabel: UILabel!
     @IBOutlet var windSpeedLabel: UILabel!
     @IBOutlet var windDirectionLabel: UILabel!
-    @IBOutlet var highTideLabel: UILabel!    
-    @IBOutlet var lowTideLabel: UILabel!
     @IBOutlet var favoriteBarButton: UIBarButtonItem!
     @IBOutlet var highTideStackView: UIStackView!
     @IBOutlet var lowTideStackView: UIStackView!
@@ -70,6 +68,13 @@ class SpotForecastTableViewController: UITableViewController {
               
     }
     
+    @IBAction func favoriteSpotBarButtonTapped(_ sender: Any) {
+        if isFavorite {
+            
+        }else{
+            addFavoriteSpot()
+        }
+    }
     private func setupFavoriteBarButton () {
         if isFavorite {
             favoriteBarButton.image = UIImage(systemName: "star.fill")
@@ -108,7 +113,9 @@ class SpotForecastTableViewController: UITableViewController {
         
         let windSpeed = oneDigitsFormatter.string(from: NSNumber(value: spot.windSpeed?.noaa ?? 0.0))
         windSpeedLabel.text = "\(windSpeed!)"
+        
         windDirectionLabel.text = convertDecimalDegreestoCompassPoints(degrees: (spot.windDirection?.noaa)!)
+        
         
         spot.highTide?.forEach({ tideItem in
             
@@ -163,7 +170,7 @@ class SpotForecastTableViewController: UITableViewController {
     }
     
     private func convertDecimalDegreestoCompassPoints(degrees: Double) -> String{
-        if degrees >= 337.5 && degrees <= 360 && degrees >= 0 && degrees <= 22.4{
+        if (degrees >= 337.5 && degrees <= 360) || (degrees >= 0 && degrees <= 22.4){
             return IntercardinalPoints.N.rawValue
         }else if degrees >= 22.5 && degrees <= 67.4{
             return IntercardinalPoints.NE.rawValue
@@ -182,6 +189,33 @@ class SpotForecastTableViewController: UITableViewController {
         }else{
             return "Invalid point"
         }
+    }
+    
+    private func addFavoriteSpot(){
+        guard let favoriteSpot = spot else {
+            return
+        }
+        let defaults = UserDefaults.standard
+        if let fireUserId = defaults.string(forKey: Constants.currentUserId.rawValue){
+            manager.addFavoriteSpot(spot: favoriteSpot, userId: fireUserId) { favoriteSpotItem, error in
+                if favoriteSpotItem != nil{
+                    self.isFavorite = true
+                    self.setupFavoriteBarButton ()
+                }
+            }
+        }
+        
+        
+    }
+    private func removeFavoriteSpot(){
+        guard let favoriteSpot = spot else {
+            return
+        }
+        let defaults = UserDefaults.standard
+        if let fireUserId = defaults.string(forKey: Constants.currentUserId.rawValue){
+            
+        }
+        
     }
 
     // MARK: - Table view data source

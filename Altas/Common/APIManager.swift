@@ -8,7 +8,6 @@
 import Foundation
 
 struct APIManager {
-    private static let baseURL: String = "https://us-central1-altas-50346.cloudfunctions.net"
     
     static func userURL(with filter: String? = nil) -> URL{
         return apiURL(endpoint: .user, parameter: filter)
@@ -22,14 +21,19 @@ struct APIManager {
         return apiURL(endpoint: .spotSearch, parameter: filter)
     }
     
-    static func favoritesURL(with filter: String) -> URL{
-        return apiURL(endpoint: .favorites, parameter: filter)
+    static func favoriteSpotsURL(with filter: String) -> URL{
+        return apiURL(endpoint: .favoriteSpots, parameter: filter)
     }
     
-    static func user(fromJSON data: Data) -> Result<[UserItem], Error> {
+    static func favoriteSpotURL(with filter: String? = nil) -> URL{
+        return apiURL(endpoint: .favorite, parameter: filter)
+    }
+    
+    static func postUser(fromJSON data: Data) -> Result<[UserItem], Error> {
         do {
             let decoder = JSONDecoder()
-            let userResponse = try decoder.decode(ResponseItem.self, from: data)
+            let userResponse = try decoder.decode(UserResponseItem.self, from: data)
+            
             var userItems: [UserItem] = []
             userItems.append(userResponse.data)
             return .success(userItems)
@@ -38,15 +42,15 @@ struct APIManager {
         }
     }
     
-    static func encodeUser(toJSON user: UserItem) -> Result<Data, Error> {
-        do {
-            let encoder = JSONEncoder()
-            let dataResponse = try encoder.encode(user)
-            return .success(dataResponse)
-        } catch {
-            return .failure(error)
+    static func getUser(fromJSON data: Data) -> Result<[UserItem], Error> {
+            do {
+                let decoder = JSONDecoder()
+                let userResponse = try decoder.decode([UserItem].self, from: data)
+                return .success(userResponse)
+            } catch {
+                return .failure(error)
+            }
         }
-    }
     
     static func spots(fromJSON data: Data) -> Result<[SpotItem], Error> {
         do {
@@ -61,7 +65,6 @@ struct APIManager {
     static func spotsForecast(fromJSON data: Data) -> Result<[SpotForecastItem], Error> {
         do {
             let decoder = JSONDecoder()
-            print("teste json - \(String(describing: String(data: data, encoding: String.Encoding.utf8)))")
             let spotResponse = try decoder.decode([SpotForecastItem].self, from: data)
             return .success(spotResponse)
         } catch {
@@ -69,9 +72,62 @@ struct APIManager {
         }
     }
     
+    static func postFavoriteSpots(fromJSON data: Data) -> Result<[FavoriteSpotItem], Error> {
+        do {
+            let decoder = JSONDecoder()
+            let favoriteSpotsResponse = try decoder.decode(FavoriteSpotResponseItem.self, from: data)
+            
+            var favoriteSpotItem: [FavoriteSpotItem] = []
+            favoriteSpotItem.append(favoriteSpotsResponse.data)
+            return .success(favoriteSpotItem)
+        }catch {
+            return .failure(error)
+        }
+    }
+    
+    static func favoriteSpots(fromJSON data: Data) -> Result<[FavoriteSpotItem], Error> {
+        do {
+            let decoder = JSONDecoder()
+            let favoriteSpotsResponse = try decoder.decode([FavoriteSpotItem].self, from: data)
+            return .success(favoriteSpotsResponse)
+        }catch {
+            return .failure(error)
+        }
+    }
+    
+    static func deleteFavoriteSpots(fromJSON data: Data) -> Result<[MessageResponseItem], Error> {
+        do {
+            let decoder = JSONDecoder()
+            let deletefavoriteSpotsResponse = try decoder.decode([MessageResponseItem].self, from: data)
+            return .success(deletefavoriteSpotsResponse)
+        }catch {
+            return .failure(error)
+        }
+    }
+    
+    static func encodeUser(toJSON user: UserItem) -> Result<Data, Error> {
+        do {
+            let encoder = JSONEncoder()
+            let dataResponse = try encoder.encode(user)
+            return .success(dataResponse)
+        } catch {
+            return .failure(error)
+        }
+    }
+    
+    static func encodeFavoriteSpot(toJSON favoriteSpot: FavoriteSpotItem) -> Result<Data, Error> {
+        do {
+            let encoder = JSONEncoder()
+            let dataResponse = try encoder.encode(favoriteSpot)
+            return .success(dataResponse)
+        }catch {
+            return .failure(error)
+        }
+    }
+    
     private static func apiURL(endpoint: Endpoint, parameter: String? = nil) -> URL{
         
-        var components = URLComponents(string: baseURL)!
+        var components = URLComponents(string: Constants.baseURL.rawValue)!
         if let aditionalParameter = parameter {
             components.path = endpoint.rawValue + aditionalParameter
         }else {

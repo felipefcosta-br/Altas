@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		A7E9D0124F92B6986C245EF2 /* Pods_Altas.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B7C6287BF972A6D3CA2DB78 /* Pods_Altas.framework */; };
+		BC10F23226F1EE3A006FE114 /* FavoriteSpotItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC10F23126F1EE3A006FE114 /* FavoriteSpotItem.swift */; };
+		BC10F23426F1F94D006FE114 /* FavoriteSpotAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC10F23326F1F94D006FE114 /* FavoriteSpotAPIManager.swift */; };
+		BC10F23626F22E18006FE114 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC10F23526F22E18006FE114 /* Constants.swift */; };
+		BC10F23826F23A13006FE114 /* FavoriteSpotResponseItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC10F23726F23A13006FE114 /* FavoriteSpotResponseItem.swift */; };
 		BC148FD326CC552F0023C37C /* SpotSerachViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC148FD226CC552F0023C37C /* SpotSerachViewController.swift */; };
 		BC274AA926EE549900968521 /* SpotForecastDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC274AA826EE549900968521 /* SpotForecastDataManager.swift */; };
 		BC274AAD26EE979700968521 /* Coordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC274AAC26EE979700968521 /* Coordinate.swift */; };
@@ -24,6 +28,7 @@
 		BC676FCA26C7BB61004CD02F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC676FC826C7BB61004CD02F /* LaunchScreen.storyboard */; };
 		BC676FD626C7BC87004CD02F /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC676FD526C7BC87004CD02F /* Login.storyboard */; };
 		BC676FDC26C7BFA5004CD02F /* Signup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC676FDB26C7BFA5004CD02F /* Signup.storyboard */; };
+		BC6C3BD326F27F20004B8BC6 /* MessageResponseItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6C3BD226F27F20004B8BC6 /* MessageResponseItem.swift */; };
 		BC6F307D26E762AE00DA3A73 /* UserItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6F307C26E762AE00DA3A73 /* UserItem.swift */; };
 		BC6F307F26E7836600DA3A73 /* UserAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6F307E26E7836600DA3A73 /* UserAPIManager.swift */; };
 		BC6FC4D826D2573E008F2953 /* FavoriteSpotTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6FC4D726D2573E008F2953 /* FavoriteSpotTableViewCell.swift */; };
@@ -31,7 +36,7 @@
 		BC6FC4DF26D25CF6008F2953 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6FC4DE26D25CF6008F2953 /* LoginViewController.swift */; };
 		BC77163B26DAE91F00E046A1 /* NoDataView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC77163A26DAE91F00E046A1 /* NoDataView.xib */; };
 		BC77163D26DAE9EC00E046A1 /* NoDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC77163C26DAE9EC00E046A1 /* NoDataView.swift */; };
-		BC7A0DB426E17271009AF6E7 /* FavoritesSpotsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7A0DB326E17271009AF6E7 /* FavoritesSpotsViewController.swift */; };
+		BC7A0DB426E17271009AF6E7 /* FavoriteSpotsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7A0DB326E17271009AF6E7 /* FavoriteSpotsViewController.swift */; };
 		BCB3E61826D3FA0000150945 /* UITextField+Altas.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB3E61726D3FA0000150945 /* UITextField+Altas.swift */; };
 		BCBA55C426E753DD0065232D /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBA55C326E753DD0065232D /* APIManager.swift */; };
 		BCBA55C626E754590065232D /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBA55C526E754590065232D /* Endpoint.swift */; };
@@ -50,6 +55,10 @@
 		206D2EB4EEC52929D9C8A022 /* Pods-Altas.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Altas.release.xcconfig"; path = "Target Support Files/Pods-Altas/Pods-Altas.release.xcconfig"; sourceTree = "<group>"; };
 		2B7C6287BF972A6D3CA2DB78 /* Pods_Altas.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Altas.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9482D26E2A384AA1DFC3E4EB /* Pods-Altas.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Altas.debug.xcconfig"; path = "Target Support Files/Pods-Altas/Pods-Altas.debug.xcconfig"; sourceTree = "<group>"; };
+		BC10F23126F1EE3A006FE114 /* FavoriteSpotItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteSpotItem.swift; sourceTree = "<group>"; };
+		BC10F23326F1F94D006FE114 /* FavoriteSpotAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteSpotAPIManager.swift; sourceTree = "<group>"; };
+		BC10F23526F22E18006FE114 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		BC10F23726F23A13006FE114 /* FavoriteSpotResponseItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteSpotResponseItem.swift; sourceTree = "<group>"; };
 		BC148FD226CC552F0023C37C /* SpotSerachViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotSerachViewController.swift; sourceTree = "<group>"; };
 		BC274AA826EE549900968521 /* SpotForecastDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotForecastDataManager.swift; sourceTree = "<group>"; };
 		BC274AAC26EE979700968521 /* Coordinate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinate.swift; sourceTree = "<group>"; };
@@ -68,6 +77,7 @@
 		BC676FCB26C7BB61004CD02F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BC676FD526C7BC87004CD02F /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		BC676FDB26C7BFA5004CD02F /* Signup.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Signup.storyboard; sourceTree = "<group>"; };
+		BC6C3BD226F27F20004B8BC6 /* MessageResponseItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageResponseItem.swift; sourceTree = "<group>"; };
 		BC6F307C26E762AE00DA3A73 /* UserItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserItem.swift; sourceTree = "<group>"; };
 		BC6F307E26E7836600DA3A73 /* UserAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAPIManager.swift; sourceTree = "<group>"; };
 		BC6FC4D726D2573E008F2953 /* FavoriteSpotTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteSpotTableViewCell.swift; sourceTree = "<group>"; };
@@ -75,7 +85,7 @@
 		BC6FC4DE26D25CF6008F2953 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		BC77163A26DAE91F00E046A1 /* NoDataView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoDataView.xib; sourceTree = "<group>"; };
 		BC77163C26DAE9EC00E046A1 /* NoDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoDataView.swift; sourceTree = "<group>"; };
-		BC7A0DB326E17271009AF6E7 /* FavoritesSpotsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesSpotsViewController.swift; sourceTree = "<group>"; };
+		BC7A0DB326E17271009AF6E7 /* FavoriteSpotsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteSpotsViewController.swift; sourceTree = "<group>"; };
 		BCB3E61726D3FA0000150945 /* UITextField+Altas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Altas.swift"; sourceTree = "<group>"; };
 		BCBA55C326E753DD0065232D /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		BCBA55C526E754590065232D /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
@@ -130,7 +140,7 @@
 		BC148FC726CC3D210023C37C /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				BC7A0DB326E17271009AF6E7 /* FavoritesSpotsViewController.swift */,
+				BC7A0DB326E17271009AF6E7 /* FavoriteSpotsViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -179,6 +189,7 @@
 				BCBA55C326E753DD0065232D /* APIManager.swift */,
 				BCBA55C526E754590065232D /* Endpoint.swift */,
 				BCF8529D26EF55DB00DD5F7C /* IntercardinalPoints.swift */,
+				BC10F23526F22E18006FE114 /* Constants.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -354,6 +365,8 @@
 			isa = PBXGroup;
 			children = (
 				BC274AA826EE549900968521 /* SpotForecastDataManager.swift */,
+				BC10F23726F23A13006FE114 /* FavoriteSpotResponseItem.swift */,
+				BC6C3BD226F27F20004B8BC6 /* MessageResponseItem.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -407,6 +420,8 @@
 				BCC621FB26EA0964003A1EE5 /* SpotItem.swift */,
 				BCCB96FE26EA780C00B2740B /* SpotForecastItem.swift */,
 				BC274AAC26EE979700968521 /* Coordinate.swift */,
+				BC10F23126F1EE3A006FE114 /* FavoriteSpotItem.swift */,
+				BC10F23326F1F94D006FE114 /* FavoriteSpotAPIManager.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -573,6 +588,7 @@
 				BC4A208726D3B1930065168C /* LoginManager.swift in Sources */,
 				BC4A208526D397F30065168C /* Segue.swift in Sources */,
 				BC77163D26DAE9EC00E046A1 /* NoDataView.swift in Sources */,
+				BC10F23626F22E18006FE114 /* Constants.swift in Sources */,
 				BC58A90F26D8483800758FD4 /* InitLoadViewController.swift in Sources */,
 				BC274AA926EE549900968521 /* SpotForecastDataManager.swift in Sources */,
 				BC6FC4DC26D25974008F2953 /* SpotForecastTableViewController.swift in Sources */,
@@ -580,8 +596,10 @@
 				BCF8529E26EF55DB00DD5F7C /* IntercardinalPoints.swift in Sources */,
 				BCDAA31026E89488006814F2 /* ResponseItem.swift in Sources */,
 				BC274AAD26EE979700968521 /* Coordinate.swift in Sources */,
+				BC10F23426F1F94D006FE114 /* FavoriteSpotAPIManager.swift in Sources */,
 				BCB3E61826D3FA0000150945 /* UITextField+Altas.swift in Sources */,
 				BC676FBE26C7BB60004CD02F /* AppDelegate.swift in Sources */,
+				BC6C3BD326F27F20004B8BC6 /* MessageResponseItem.swift in Sources */,
 				BCC6220226EA2474003A1EE5 /* SpotSearchedCell.swift in Sources */,
 				BC148FD326CC552F0023C37C /* SpotSerachViewController.swift in Sources */,
 				BCC621FE26EA0A9E003A1EE5 /* SpotAPIManager.swift in Sources */,
@@ -589,9 +607,11 @@
 				BC676FC026C7BB60004CD02F /* SceneDelegate.swift in Sources */,
 				BCC6220026EA136B003A1EE5 /* SpotsSerachDataManager.swift in Sources */,
 				BC6FC4D826D2573E008F2953 /* FavoriteSpotTableViewCell.swift in Sources */,
-				BC7A0DB426E17271009AF6E7 /* FavoritesSpotsViewController.swift in Sources */,
+				BC7A0DB426E17271009AF6E7 /* FavoriteSpotsViewController.swift in Sources */,
 				BC6FC4DF26D25CF6008F2953 /* LoginViewController.swift in Sources */,
+				BC10F23826F23A13006FE114 /* FavoriteSpotResponseItem.swift in Sources */,
 				BC4828FF26CEB1040085F6D6 /* SignupManager.swift in Sources */,
+				BC10F23226F1EE3A006FE114 /* FavoriteSpotItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

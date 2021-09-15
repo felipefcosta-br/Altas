@@ -17,14 +17,17 @@ class SignupManager {
                 completion(nil, error)
             }else{
                 guard let userId = authResult?.user.uid else { return }
-                let user = UserItem(name: name, email: email, city: city, userId: userId)
+                let user = UserItem(id: nil, name: name, email: email, city: city, authUserId: userId)
                 
                 UserAPIManager.shared.fetchPostUser(by: user) {
                     (userResult) in
                     
                     switch userResult {
-                    case let .success(user):
-                        completion(user.first, nil)
+                    case let .success(userItem):
+                        if let fireUserId = userItem.first?.id{
+                            self.saveFireStoreUserId(userId: fireUserId)
+                        }
+                        completion(userItem.first, nil)
                     case let .failure(error):
                         completion(nil, error)
                     }
@@ -33,5 +36,10 @@ class SignupManager {
                 
             }
         }
+    }
+    
+    private func saveFireStoreUserId(userId: String){
+        let defaults = UserDefaults.standard
+        defaults.set(userId, forKey: "fireUserId")
     }
 }

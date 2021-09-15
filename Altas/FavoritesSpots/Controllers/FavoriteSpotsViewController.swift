@@ -8,7 +8,7 @@
 import UIKit
 import FirebaseAuth
 
-class FavoritesSpotsViewController: UIViewController {
+class FavoriteSpotsViewController: UIViewController {
 
     @IBOutlet var favoritesSpotsTableView: UITableView!
     var handle: AuthStateDidChangeListenerHandle!
@@ -27,10 +27,9 @@ class FavoritesSpotsViewController: UIViewController {
         super.viewDidLoad()
         initialize()
     }
-    
 }
 // MARK: - Private Extension
-private extension FavoritesSpotsViewController{
+private extension FavoriteSpotsViewController{
     func initialize(){
         setupBarButtons()
         loadFavoritesSpots()
@@ -67,7 +66,7 @@ private extension FavoritesSpotsViewController{
 }
 
 // MARK: - UITableViewDataSource
-extension FavoritesSpotsViewController: UITableViewDataSource{
+extension FavoriteSpotsViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 0
     }

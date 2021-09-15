@@ -25,6 +25,10 @@ class UserAPIManager {
         let request = URLRequest(url: url)
         
         let task = session.dataTask(with: request) {(data, response, error) in
+            let result = self.processGetUserRequest(data: data, error: error)
+            DispatchQueue.main.async {
+                completion(result)
+            }  
         
         }
         task.resume()
@@ -41,7 +45,7 @@ class UserAPIManager {
         request.httpBody = data
         
         let task = session.dataTask(with: request){(data, response, error) in
-            let result = self.processUserRequest(data: data, error: error)
+            let result = self.processPostUserRequest(data: data, error: error)
             DispatchQueue.main.async {
                 completion(result)
             }            
@@ -63,12 +67,19 @@ class UserAPIManager {
         }
     }
     
-    private func processUserRequest(data: Data?, error: Error?) -> Result<[UserItem], Error> {
+    private func processPostUserRequest(data: Data?, error: Error?) -> Result<[UserItem], Error> {
+        guard let jsonData = data else {
+            return .failure(error!)
+        }
+        return APIManager.postUser(fromJSON: jsonData)
+    }
+    
+    private func processGetUserRequest(data: Data?, error: Error?) -> Result<[UserItem], Error> {
         guard let jsonData = data else {
             return .failure(error!)
         }
         
-        return APIManager.user(fromJSON: jsonData)
+        return APIManager.getUser(fromJSON: jsonData)
     }
     
 }
