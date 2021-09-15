@@ -22,6 +22,7 @@ class SpotForecastTableViewController: UITableViewController {
     @IBOutlet var lowTideStackView: UIStackView!
     
     var isFavorite: Bool = false
+    var favoriteId: String? = nil
     var spotId: String?
     var spot: SpotForecastItem?
     
@@ -70,7 +71,7 @@ class SpotForecastTableViewController: UITableViewController {
     
     @IBAction func favoriteSpotBarButtonTapped(_ sender: Any) {
         if isFavorite {
-            
+            removeFavoriteSpot()
         }else{
             addFavoriteSpot()
         }
@@ -90,6 +91,23 @@ class SpotForecastTableViewController: UITableViewController {
         manager.fetch(by: spotId) {spotItem in
             self.spot = spotItem
             self.setupSpotForecast()
+            self.checkFavoriteSpot()
+        }
+    }
+    
+    private func checkFavoriteSpot(){
+        guard let spot = self.spot else {
+            return
+        }
+        let defaults = UserDefaults.standard
+        if let fireUserId = defaults.string(forKey: Constants.currentUserId.rawValue){
+            manager.fetchBySpotId(by: spot.id, fireUserId: fireUserId) { favoriteSpotItem, error in
+                if favoriteSpotItem != nil {
+                    self.isFavorite = true
+                    self.favoriteId = favoriteSpotItem?.id
+                    self.setupFavoriteBarButton()
+                }
+            }
         }
     }
     
@@ -138,9 +156,7 @@ class SpotForecastTableViewController: UITableViewController {
             label.numberOfLines = 2
             label.text = tide
             lowTideStackView.addArrangedSubview(label)
-        })
-        
-        
+        })        
 
     }
     
@@ -200,6 +216,7 @@ class SpotForecastTableViewController: UITableViewController {
             manager.addFavoriteSpot(spot: favoriteSpot, userId: fireUserId) { favoriteSpotItem, error in
                 if favoriteSpotItem != nil{
                     self.isFavorite = true
+                    self.favoriteId = favoriteSpotItem?.id
                     self.setupFavoriteBarButton ()
                 }
             }
@@ -208,12 +225,19 @@ class SpotForecastTableViewController: UITableViewController {
         
     }
     private func removeFavoriteSpot(){
-        guard let favoriteSpot = spot else {
+        guard let favoriteSpotId = favoriteId else {
             return
         }
         let defaults = UserDefaults.standard
         if let fireUserId = defaults.string(forKey: Constants.currentUserId.rawValue){
-            
+            manager.deleteFavoriteSpot(userId: fireUserId, favoriteSpotId: favoriteSpotId) {
+                messageResponseItem, error in
+                if messageResponseItem != nil && error == nil{
+                    self.isFavorite = false
+                    self.favoriteId = nil
+                    self.setupFavoriteBarButton()
+                }
+            }
         }
         
     }

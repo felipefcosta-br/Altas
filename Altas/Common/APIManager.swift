@@ -26,7 +26,7 @@ struct APIManager {
     }
     
     static func favoriteSpotURL(with filter: String? = nil) -> URL{
-        return apiURL(endpoint: .favorite, parameter: filter)
+        return apiURL(endpoint: .favoriteSpot, parameter: filter)
     }
     
     static func postUser(fromJSON data: Data) -> Result<[UserItem], Error> {
@@ -95,10 +95,14 @@ struct APIManager {
         }
     }
     
-    static func deleteFavoriteSpots(fromJSON data: Data) -> Result<[MessageResponseItem], Error> {
+    static func deleteFavoriteSpots(fromJSON data: Data) -> Result<MessageResponseItem, Error> {
         do {
             let decoder = JSONDecoder()
-            let deletefavoriteSpotsResponse = try decoder.decode([MessageResponseItem].self, from: data)
+            
+            if let JSONString = String(data: data, encoding: String.Encoding.utf8) {
+               print(JSONString)
+            }
+            let deletefavoriteSpotsResponse = try decoder.decode(MessageResponseItem.self, from: data)
             return .success(deletefavoriteSpotsResponse)
         }catch {
             return .failure(error)
