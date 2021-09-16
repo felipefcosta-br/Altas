@@ -19,6 +19,20 @@ class FavoriteSpotAPIManager {
         return URLSession(configuration: config)
     }()
     
+    func fetchUserFavoriteSpots(by fireUserId: String,
+                                completion: @escaping (Result<[FavoriteSpotForecastItem], Error>) -> Void){
+        let url = APIManager.favoriteSpotsURL(with: fireUserId)
+        let request = URLRequest(url: url)
+        
+        let task = session.dataTask(with: request) { (data, response, error) in
+            let result = self.processGetFavoriteSpotForecastRequest(data: data, error: error)
+            DispatchQueue.main.async {
+                completion(result)
+            }
+        }
+        task.resume()
+    }
+    
     func fetchFavoriteSpotBySpotId(by spotId: String, fireUserId: String,
                                    completion: @escaping (Result<[FavoriteSpotItem], Error>) -> Void){
         let param = "\(fireUserId)/\(spotId)"
@@ -44,8 +58,6 @@ class FavoriteSpotAPIManager {
         
         let data = prepareFavoriteSpotRequest(favoriteSpot: favoriteSpotItem)
         request.httpBody = data
-        
-        print("teste body - \(data)")
         
         let task = session.dataTask(with: request) { (data, response, error) in
             let result = self.processPostFavoriteSpotRequest(data: data, error: error)
@@ -89,21 +101,32 @@ class FavoriteSpotAPIManager {
         }
     }
     
-    private func processGetFavoriteSpotRequest(data: Data?, error: Error?) -> Result<[FavoriteSpotItem], Error> {
+    private func processGetFavoriteSpotForecastRequest(
+        data: Data?, error: Error?) -> Result<[FavoriteSpotForecastItem], Error> {
+        guard let jsonData = data else {
+            return .failure(error!)
+        }
+        return APIManager.favoriteSpotsForecast(fromJSON: jsonData)
+    }
+    
+    private func processGetFavoriteSpotRequest(
+        data: Data?, error: Error?) -> Result<[FavoriteSpotItem], Error> {
         guard let jsonData = data else {
             return .failure(error!)
         }
         return APIManager.favoriteSpots(fromJSON: jsonData)
     }
     
-    private func processPostFavoriteSpotRequest(data: Data?, error: Error?) -> Result<[FavoriteSpotItem], Error> {
+    private func processPostFavoriteSpotRequest(
+        data: Data?, error: Error?) -> Result<[FavoriteSpotItem], Error> {
         guard let jsonData = data else {
             return .failure(error!)
         }
         return APIManager.postFavoriteSpots(fromJSON: jsonData)
     }
     
-    private func processDeleteFavoriteSpotRequest(data: Data?, error: Error?) -> Result<MessageResponseItem, Error> {
+    private func processDeleteFavoriteSpotRequest(
+        data: Data?, error: Error?) -> Result<MessageResponseItem, Error> {
         guard let jsonData = data else {
             return .failure(error!)
         }

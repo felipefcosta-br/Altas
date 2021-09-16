@@ -76,6 +76,7 @@ class SpotForecastTableViewController: UITableViewController {
             addFavoriteSpot()
         }
     }
+    
     private func setupFavoriteBarButton () {
         if isFavorite {
             favoriteBarButton.image = UIImage(systemName: "star.fill")

@@ -97,6 +97,16 @@ struct APIManager {
         }
     }
     
+    static func favoriteSpotsForecast(fromJSON data: Data) -> Result<[FavoriteSpotForecastItem], Error> {
+        do {
+            let decoder = JSONDecoder()
+            let favoriteSpotsResponse = try decoder.decode([FavoriteSpotForecastItem].self, from: data)
+            return .success(favoriteSpotsResponse)
+        }catch {
+            return .failure(error)
+        }
+    }
+    
     static func deleteFavoriteSpots(fromJSON data: Data) -> Result<MessageResponseItem, Error> {
         do {
             let decoder = JSONDecoder()

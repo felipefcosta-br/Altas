@@ -9,8 +9,9 @@ import Foundation
 
 enum Segue: String {
     case showSpotDetail
-    case showFavoritiesSpots
+    case showFavoriteSpots
     case showLogin
     case showSignUp
     case showSpotFromSearch
+    case showFavoriteSpotDetail
 }

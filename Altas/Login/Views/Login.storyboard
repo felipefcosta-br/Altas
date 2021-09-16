@@ -107,7 +107,7 @@
                         <outlet property="emailTextField" destination="lgw-US-ncA" id="OEx-aP-vzv"/>
                         <outlet property="passwordMessageLabel" destination="3Te-pS-K19" id="jBl-H5-dQR"/>
                         <outlet property="passwordTextField" destination="uUQ-B6-9JQ" id="ZhC-Zg-jAH"/>
-                        <segue destination="SQB-aa-d40" kind="show" identifier="showFavoritiesSpots" id="gzW-by-KUv"/>
+                        <segue destination="SQB-aa-d40" kind="show" identifier="showFavoriteSpots" id="gzW-by-KUv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

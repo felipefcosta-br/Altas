@@ -19,7 +19,7 @@ class InitLoadViewController: UIViewController {
             if user == nil{
                 self.performSegue(withIdentifier: Segue.showLogin.rawValue, sender: self)
             }else{
-                self.performSegue(withIdentifier: Segue.showFavoritiesSpots.rawValue, sender: self)
+                self.performSegue(withIdentifier: Segue.showFavoriteSpots.rawValue, sender: self)
             }
         }
     }

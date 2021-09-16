@@ -14,7 +14,6 @@
 		BC10F23826F23A13006FE114 /* FavoriteSpotResponseItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC10F23726F23A13006FE114 /* FavoriteSpotResponseItem.swift */; };
 		BC148FD326CC552F0023C37C /* SpotSerachViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC148FD226CC552F0023C37C /* SpotSerachViewController.swift */; };
 		BC274AA926EE549900968521 /* SpotForecastDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC274AA826EE549900968521 /* SpotForecastDataManager.swift */; };
-		BC274AAD26EE979700968521 /* Coordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC274AAC26EE979700968521 /* Coordinate.swift */; };
 		BC4828FF26CEB1040085F6D6 /* SignupManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4828FE26CEB1040085F6D6 /* SignupManager.swift */; };
 		BC4A208526D397F30065168C /* Segue.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4A208426D397F30065168C /* Segue.swift */; };
 		BC4A208726D3B1930065168C /* LoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4A208626D3B1920065168C /* LoginManager.swift */; };
@@ -49,6 +48,8 @@
 		BCDAA31026E89488006814F2 /* ResponseItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCDAA30F26E89488006814F2 /* ResponseItem.swift */; };
 		BCE2FF7126CD06C9002D549D /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE2FF7026CD06C9002D549D /* SignupViewController.swift */; };
 		BCF8529E26EF55DB00DD5F7C /* IntercardinalPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF8529D26EF55DB00DD5F7C /* IntercardinalPoints.swift */; };
+		BCFA6FB726F3637700667A65 /* FavoriteSpotForecastItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFA6FB626F3637700667A65 /* FavoriteSpotForecastItem.swift */; };
+		BCFA6FB926F3649800667A65 /* ForecastItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFA6FB826F3649800667A65 /* ForecastItems.swift */; };
 		BCFEF05726CE473900EA8393 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BCFEF05626CE473900EA8393 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
@@ -62,7 +63,6 @@
 		BC10F23726F23A13006FE114 /* FavoriteSpotResponseItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteSpotResponseItem.swift; sourceTree = "<group>"; };
 		BC148FD226CC552F0023C37C /* SpotSerachViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotSerachViewController.swift; sourceTree = "<group>"; };
 		BC274AA826EE549900968521 /* SpotForecastDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotForecastDataManager.swift; sourceTree = "<group>"; };
-		BC274AAC26EE979700968521 /* Coordinate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinate.swift; sourceTree = "<group>"; };
 		BC4828FE26CEB1040085F6D6 /* SignupManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupManager.swift; sourceTree = "<group>"; };
 		BC4A208426D397F30065168C /* Segue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Segue.swift; sourceTree = "<group>"; };
 		BC4A208626D3B1920065168C /* LoginManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginManager.swift; sourceTree = "<group>"; };
@@ -99,6 +99,8 @@
 		BCDAA30F26E89488006814F2 /* ResponseItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseItem.swift; sourceTree = "<group>"; };
 		BCE2FF7026CD06C9002D549D /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		BCF8529D26EF55DB00DD5F7C /* IntercardinalPoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntercardinalPoints.swift; sourceTree = "<group>"; };
+		BCFA6FB626F3637700667A65 /* FavoriteSpotForecastItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteSpotForecastItem.swift; sourceTree = "<group>"; };
+		BCFA6FB826F3649800667A65 /* ForecastItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastItems.swift; sourceTree = "<group>"; };
 		BCFEF05626CE473900EA8393 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -422,9 +424,10 @@
 				BCC621FD26EA0A9E003A1EE5 /* SpotAPIManager.swift */,
 				BCC621FB26EA0964003A1EE5 /* SpotItem.swift */,
 				BCCB96FE26EA780C00B2740B /* SpotForecastItem.swift */,
-				BC274AAC26EE979700968521 /* Coordinate.swift */,
 				BC10F23126F1EE3A006FE114 /* FavoriteSpotItem.swift */,
 				BC10F23326F1F94D006FE114 /* FavoriteSpotAPIManager.swift */,
+				BCFA6FB626F3637700667A65 /* FavoriteSpotForecastItem.swift */,
+				BCFA6FB826F3649800667A65 /* ForecastItems.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -598,9 +601,9 @@
 				BC6F307D26E762AE00DA3A73 /* UserItem.swift in Sources */,
 				BCF8529E26EF55DB00DD5F7C /* IntercardinalPoints.swift in Sources */,
 				BCDAA31026E89488006814F2 /* ResponseItem.swift in Sources */,
-				BC274AAD26EE979700968521 /* Coordinate.swift in Sources */,
 				BC10F23426F1F94D006FE114 /* FavoriteSpotAPIManager.swift in Sources */,
 				BCB3E61826D3FA0000150945 /* UITextField+Altas.swift in Sources */,
+				BCFA6FB926F3649800667A65 /* ForecastItems.swift in Sources */,
 				BC676FBE26C7BB60004CD02F /* AppDelegate.swift in Sources */,
 				BC6C3BD326F27F20004B8BC6 /* MessageResponseItem.swift in Sources */,
 				BCC6220226EA2474003A1EE5 /* SpotSearchedCell.swift in Sources */,
@@ -608,6 +611,7 @@
 				BCC621FE26EA0A9E003A1EE5 /* SpotAPIManager.swift in Sources */,
 				BCBA55C626E754590065232D /* Endpoint.swift in Sources */,
 				BC676FC026C7BB60004CD02F /* SceneDelegate.swift in Sources */,
+				BCFA6FB726F3637700667A65 /* FavoriteSpotForecastItem.swift in Sources */,
 				BCC6220026EA136B003A1EE5 /* SpotsSerachDataManager.swift in Sources */,
 				BC6FC4D826D2573E008F2953 /* FavoriteSpotTableViewCell.swift in Sources */,
 				BC7A0DB426E17271009AF6E7 /* FavoriteSpotsViewController.swift in Sources */,

@@ -34,7 +34,7 @@
                     <navigationItem key="navigationItem" id="oDQ-e7-E2I"/>
                     <connections>
                         <segue destination="B9t-8N-xX6" kind="show" identifier="showLogin" id="e6t-vo-61E"/>
-                        <segue destination="6gu-pR-lRl" kind="show" identifier="showFavoritiesSpots" id="XCw-9x-u9x"/>
+                        <segue destination="6gu-pR-lRl" kind="show" identifier="showFavoriteSpots" id="XCw-9x-u9x"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

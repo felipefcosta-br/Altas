@@ -184,7 +184,7 @@
                         <outlet property="nameTextField" destination="C3P-Of-dYj" id="6nQ-m6-Lp0"/>
                         <outlet property="passwordMessageLabel" destination="AOm-l3-QiE" id="8hv-yh-HSE"/>
                         <outlet property="passwordTextField" destination="Hlm-V8-M5t" id="pCG-GL-jaJ"/>
-                        <segue destination="kkf-IH-iSu" kind="show" identifier="showFavoritiesSpots" id="TWj-UX-x64"/>
+                        <segue destination="kkf-IH-iSu" kind="show" identifier="showFavoriteSpots" id="TWj-UX-x64"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
