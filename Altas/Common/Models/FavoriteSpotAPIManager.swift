@@ -45,6 +45,8 @@ class FavoriteSpotAPIManager {
         let data = prepareFavoriteSpotRequest(favoriteSpot: favoriteSpotItem)
         request.httpBody = data
         
+        print("teste body - \(data)")
+        
         let task = session.dataTask(with: request) { (data, response, error) in
             let result = self.processPostFavoriteSpotRequest(data: data, error: error)
             DispatchQueue.main.async {

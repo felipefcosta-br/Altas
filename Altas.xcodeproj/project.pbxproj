@@ -29,6 +29,7 @@
 		BC676FD626C7BC87004CD02F /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC676FD526C7BC87004CD02F /* Login.storyboard */; };
 		BC676FDC26C7BFA5004CD02F /* Signup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC676FDB26C7BFA5004CD02F /* Signup.storyboard */; };
 		BC6C3BD326F27F20004B8BC6 /* MessageResponseItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6C3BD226F27F20004B8BC6 /* MessageResponseItem.swift */; };
+		BC6C3BD526F2B4FC004B8BC6 /* FavoriteSpotsDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6C3BD426F2B4FC004B8BC6 /* FavoriteSpotsDataManager.swift */; };
 		BC6F307D26E762AE00DA3A73 /* UserItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6F307C26E762AE00DA3A73 /* UserItem.swift */; };
 		BC6F307F26E7836600DA3A73 /* UserAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6F307E26E7836600DA3A73 /* UserAPIManager.swift */; };
 		BC6FC4D826D2573E008F2953 /* FavoriteSpotTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6FC4D726D2573E008F2953 /* FavoriteSpotTableViewCell.swift */; };
@@ -78,6 +79,7 @@
 		BC676FD526C7BC87004CD02F /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		BC676FDB26C7BFA5004CD02F /* Signup.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Signup.storyboard; sourceTree = "<group>"; };
 		BC6C3BD226F27F20004B8BC6 /* MessageResponseItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageResponseItem.swift; sourceTree = "<group>"; };
+		BC6C3BD426F2B4FC004B8BC6 /* FavoriteSpotsDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteSpotsDataManager.swift; sourceTree = "<group>"; };
 		BC6F307C26E762AE00DA3A73 /* UserItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserItem.swift; sourceTree = "<group>"; };
 		BC6F307E26E7836600DA3A73 /* UserAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAPIManager.swift; sourceTree = "<group>"; };
 		BC6FC4D726D2573E008F2953 /* FavoriteSpotTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteSpotTableViewCell.swift; sourceTree = "<group>"; };
@@ -125,6 +127,7 @@
 		BC148FC526CC3D0B0023C37C /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				BC6C3BD426F2B4FC004B8BC6 /* FavoriteSpotsDataManager.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -610,6 +613,7 @@
 				BC7A0DB426E17271009AF6E7 /* FavoriteSpotsViewController.swift in Sources */,
 				BC6FC4DF26D25CF6008F2953 /* LoginViewController.swift in Sources */,
 				BC10F23826F23A13006FE114 /* FavoriteSpotResponseItem.swift in Sources */,
+				BC6C3BD526F2B4FC004B8BC6 /* FavoriteSpotsDataManager.swift in Sources */,
 				BC4828FF26CEB1040085F6D6 /* SignupManager.swift in Sources */,
 				BC10F23226F1EE3A006FE114 /* FavoriteSpotItem.swift in Sources */,
 			);

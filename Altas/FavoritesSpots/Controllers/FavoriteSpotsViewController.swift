@@ -34,6 +34,7 @@ private extension FavoriteSpotsViewController{
         setupBarButtons()
         loadFavoritesSpots()
     }
+    
     func setupBarButtons(){
         let mainMenu = UIMenu(title: "", children: [
             UIAction(title: "Sign Out", image: UIImage(named: "logout")){ action in
@@ -44,6 +45,7 @@ private extension FavoriteSpotsViewController{
         let leftNavButton = UIBarButtonItem(image: UIImage(named: "menu"), menu: mainMenu)
         navigationItem.leftBarButtonItem = leftNavButton
     }
+    
     func signOut(){
         do {
             try Auth.auth().signOut()
@@ -51,6 +53,7 @@ private extension FavoriteSpotsViewController{
             print("Sign out error")
         }
     }
+    
     func loadFavoritesSpots(){
         let view = NoDataView(frame: CGRect(x: 0,
                                             y: 0,

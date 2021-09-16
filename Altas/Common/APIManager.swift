@@ -65,7 +65,9 @@ struct APIManager {
     static func spotsForecast(fromJSON data: Data) -> Result<[SpotForecastItem], Error> {
         do {
             let decoder = JSONDecoder()
+            
             let spotResponse = try decoder.decode([SpotForecastItem].self, from: data)
+            print(spotResponse.first)
             return .success(spotResponse)
         } catch {
             return .failure(error)
