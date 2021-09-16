@@ -719,10 +719,10 @@
             </objects>
             <point key="canvasLocation" x="2816" y="226"/>
         </scene>
-        <!--View Controller-->
+        <!--Map View Controller-->
         <scene sceneID="qeo-GI-0lu">
             <objects>
-                <viewController id="M9e-IW-YH8" sceneMemberID="viewController">
+                <viewController id="M9e-IW-YH8" customClass="MapViewController" customModule="Altas" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="EV5-vf-Qx4">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -742,6 +742,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="Ebb-as-0Zy"/>
                     <connections>
+                        <outlet property="mapView" destination="14Y-vn-HRH" id="pBe-H4-3Fl"/>
                         <segue destination="J8k-Qx-aAk" kind="show" id="d4H-xh-v3t"/>
                     </connections>
                 </viewController>
@@ -799,7 +800,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="YeV-dh-Kwa"/>
+        <segue reference="d4H-xh-v3t"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" name="yellow_altas"/>
     <resources>

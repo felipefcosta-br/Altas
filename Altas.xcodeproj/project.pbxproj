@@ -50,6 +50,9 @@
 		BCF8529E26EF55DB00DD5F7C /* IntercardinalPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF8529D26EF55DB00DD5F7C /* IntercardinalPoints.swift */; };
 		BCFA6FB726F3637700667A65 /* FavoriteSpotForecastItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFA6FB626F3637700667A65 /* FavoriteSpotForecastItem.swift */; };
 		BCFA6FB926F3649800667A65 /* ForecastItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFA6FB826F3649800667A65 /* ForecastItems.swift */; };
+		BCFA6FBB26F38C5F00667A65 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFA6FBA26F38C5F00667A65 /* MapViewController.swift */; };
+		BCFA6FBD26F38EA900667A65 /* MapaDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFA6FBC26F38EA900667A65 /* MapaDataManager.swift */; };
+		BCFA6FBF26F39A2E00667A65 /* SpotForecastAnnotationItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFA6FBE26F39A2E00667A65 /* SpotForecastAnnotationItem.swift */; };
 		BCFEF05726CE473900EA8393 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BCFEF05626CE473900EA8393 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
@@ -101,6 +104,9 @@
 		BCF8529D26EF55DB00DD5F7C /* IntercardinalPoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntercardinalPoints.swift; sourceTree = "<group>"; };
 		BCFA6FB626F3637700667A65 /* FavoriteSpotForecastItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteSpotForecastItem.swift; sourceTree = "<group>"; };
 		BCFA6FB826F3649800667A65 /* ForecastItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastItems.swift; sourceTree = "<group>"; };
+		BCFA6FBA26F38C5F00667A65 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		BCFA6FBC26F38EA900667A65 /* MapaDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapaDataManager.swift; sourceTree = "<group>"; };
+		BCFA6FBE26F39A2E00667A65 /* SpotForecastAnnotationItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotForecastAnnotationItem.swift; sourceTree = "<group>"; };
 		BCFEF05626CE473900EA8393 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -348,6 +354,8 @@
 		BC6FC4D226D2545F008F2953 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				BCFA6FBC26F38EA900667A65 /* MapaDataManager.swift */,
+				BCFA6FBE26F39A2E00667A65 /* SpotForecastAnnotationItem.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -362,6 +370,7 @@
 		BC6FC4D426D2546F008F2953 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				BCFA6FBA26F38C5F00667A65 /* MapViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -588,6 +597,7 @@
 				BCCB96FF26EA780C00B2740B /* SpotForecastItem.swift in Sources */,
 				BC5713EF26CD5D840030D8E7 /* Validator.swift in Sources */,
 				BCBA55C426E753DD0065232D /* APIManager.swift in Sources */,
+				BCFA6FBD26F38EA900667A65 /* MapaDataManager.swift in Sources */,
 				BCE2FF7126CD06C9002D549D /* SignupViewController.swift in Sources */,
 				BCC621FC26EA0964003A1EE5 /* SpotItem.swift in Sources */,
 				BC6F307F26E7836600DA3A73 /* UserAPIManager.swift in Sources */,
@@ -612,10 +622,12 @@
 				BCBA55C626E754590065232D /* Endpoint.swift in Sources */,
 				BC676FC026C7BB60004CD02F /* SceneDelegate.swift in Sources */,
 				BCFA6FB726F3637700667A65 /* FavoriteSpotForecastItem.swift in Sources */,
+				BCFA6FBF26F39A2E00667A65 /* SpotForecastAnnotationItem.swift in Sources */,
 				BCC6220026EA136B003A1EE5 /* SpotsSerachDataManager.swift in Sources */,
 				BC6FC4D826D2573E008F2953 /* FavoriteSpotTableViewCell.swift in Sources */,
 				BC7A0DB426E17271009AF6E7 /* FavoriteSpotsViewController.swift in Sources */,
 				BC6FC4DF26D25CF6008F2953 /* LoginViewController.swift in Sources */,
+				BCFA6FBB26F38C5F00667A65 /* MapViewController.swift in Sources */,
 				BC10F23826F23A13006FE114 /* FavoriteSpotResponseItem.swift in Sources */,
 				BC6C3BD526F2B4FC004B8BC6 /* FavoriteSpotsDataManager.swift in Sources */,
 				BC4828FF26CEB1040085F6D6 /* SignupManager.swift in Sources */,

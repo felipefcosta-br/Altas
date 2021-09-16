@@ -10,6 +10,7 @@ import Foundation
 enum Endpoint: String {
     case user = "/app/user/"
     case spot = "/app/spot/"
+    case spots = "/app/spots/"
     case spotSearch = "/app/spotSearch/"
     case citySpots = "/app/citySpots/"
     case favoriteSpot = "/app/favoriteSpot/"

@@ -17,6 +17,10 @@ struct APIManager {
         return apiURL(endpoint: .spot, parameter: filter)
     }
     
+    static func spotsURL() -> URL{
+        return apiURL(endpoint: .spots)
+    }
+    
     static func spotSearchURL(with filter: String) -> URL{
         return apiURL(endpoint: .spotSearch, parameter: filter)
     }
@@ -67,12 +71,25 @@ struct APIManager {
             let decoder = JSONDecoder()
             
             let spotResponse = try decoder.decode([SpotForecastItem].self, from: data)
+            return .success(spotResponse)
+        } catch {
+            return .failure(error)
+        }
+    }
+    
+    static func spotsForecastAnnotation(
+        fromJSON data: Data) -> Result<[SpotForecastAnnotationItem], Error> {
+        do {
+            let decoder = JSONDecoder()
+            
+            let spotResponse = try decoder.decode([SpotForecastAnnotationItem].self, from: data)
             print(spotResponse.first)
             return .success(spotResponse)
         } catch {
             return .failure(error)
         }
     }
+
     
     static func postFavoriteSpots(fromJSON data: Data) -> Result<[FavoriteSpotItem], Error> {
         do {

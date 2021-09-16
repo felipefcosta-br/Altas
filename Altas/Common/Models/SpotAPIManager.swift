@@ -20,6 +20,18 @@ class SpotAPIManager {
         return URLSession(configuration: config)
     }()
     
+    func fetchAllSpots(completion: @escaping (Result<[SpotForecastAnnotationItem], Error>) -> Void){
+        let url = APIManager.spotsURL()
+        let request = URLRequest(url: url)
+        
+        let task = session.dataTask(with: request) { (data, response, error) in
+            let result = self.processSpotForecastAnnotationRequest(data: data, error: error)
+            print("teste spots \(result)")
+            completion(result)
+        }
+        task.resume()
+    }
+    
     func fetchSearchSpots(by searchText: String, completion: @escaping (Result<[SpotItem], Error>) -> Void){
         let url = APIManager.spotSearchURL(with: searchText)
         let request = URLRequest(url: url)
@@ -37,7 +49,6 @@ class SpotAPIManager {
         
         let task = session.dataTask(with: request) { (data, response, error) in
             let result = self.processSpotForecastRequest(data: data, error: error)
-            print("teste spot \(result)")
             completion(result)
         }
         task.resume()
@@ -55,6 +66,14 @@ class SpotAPIManager {
             return . failure(error!)
         }
         return APIManager.spotsForecast(fromJSON: jsonData)
+    }
+    
+    private func processSpotForecastAnnotationRequest(
+        data: Data?, error: Error?) -> Result<[SpotForecastAnnotationItem], Error>{
+        guard let jsonData = data else {
+            return . failure(error!)
+        }
+        return APIManager.spotsForecastAnnotation(fromJSON: jsonData)
     }
     
 }
