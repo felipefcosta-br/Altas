@@ -15,7 +15,7 @@
             <objects>
                 <tableViewController id="J8k-Qx-aAk" customClass="SpotForecastTableViewController" customModule="Altas" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="rK4-yp-56J">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <sections>
@@ -465,7 +465,7 @@
             <objects>
                 <viewController id="3Wc-KC-prJ" customClass="FavoriteSpotsViewController" customModule="Altas" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fJD-ZC-na6">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="120" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pBF-Tu-HWv">
@@ -587,7 +587,7 @@
             <objects>
                 <viewController id="1Zy-SJ-qlL" customClass="SpotSerachViewController" customModule="Altas" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vRw-7V-57W">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <searchBar contentMode="redraw" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HM5-xX-jJB">
@@ -724,11 +724,14 @@
             <objects>
                 <viewController id="M9e-IW-YH8" customClass="MapViewController" customModule="Altas" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="EV5-vf-Qx4">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="14Y-vn-HRH">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
+                                <connections>
+                                    <outlet property="delegate" destination="M9e-IW-YH8" id="w3N-i3-WtO"/>
+                                </connections>
                             </mapView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="987-Zb-Kbm"/>
@@ -743,7 +746,7 @@
                     <navigationItem key="navigationItem" id="Ebb-as-0Zy"/>
                     <connections>
                         <outlet property="mapView" destination="14Y-vn-HRH" id="pBe-H4-3Fl"/>
-                        <segue destination="J8k-Qx-aAk" kind="show" id="d4H-xh-v3t"/>
+                        <segue destination="J8k-Qx-aAk" kind="show" identifier="showSpotFromMap" id="d4H-xh-v3t"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="26e-XM-6vq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -800,7 +803,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="d4H-xh-v3t"/>
+        <segue reference="fMI-HN-O2c"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" name="yellow_altas"/>
     <resources>

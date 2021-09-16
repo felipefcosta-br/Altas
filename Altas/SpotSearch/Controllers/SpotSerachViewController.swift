@@ -81,6 +81,7 @@ private extension SpotSerachViewController {
     func signOut(){
         do {
             try Auth.auth().signOut()
+            UserDefaults.standard.removeObject(forKey: Constants.currentUserId.rawValue)
         } catch {
             print("Sign out error")
         }

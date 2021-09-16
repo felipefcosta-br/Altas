@@ -47,7 +47,7 @@ class SpotForecastAnnotationItem: NSObject, Codable, MKAnnotation {
             nf.maximumFractionDigits = 1
             return nf
         }()
-        let waveH =  oneDigitsFormatter.string(from: NSNumber(value: waveHeight?.noaa ?? 0.0))
+        let waveH =  "\(oneDigitsFormatter.string(from: NSNumber(value: waveHeight?.noaa ?? 0.0))!)m"
         return waveH
     }
     

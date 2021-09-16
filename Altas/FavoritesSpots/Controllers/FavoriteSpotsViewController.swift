@@ -31,11 +31,12 @@ class FavoriteSpotsViewController: UIViewController {
                 self.signOut()
             }
         }
+        initialize()
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        initialize()
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -95,6 +96,7 @@ private extension FavoriteSpotsViewController{
     func signOut(){
         do {
             try Auth.auth().signOut()
+            UserDefaults.standard.removeObject(forKey: Constants.currentUserId.rawValue)
         } catch {
             print("Sign out error")
         }

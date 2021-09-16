@@ -40,6 +40,6 @@ class SignupManager {
     
     private func saveFireStoreUserId(userId: String){
         let defaults = UserDefaults.standard
-        defaults.set(userId, forKey: "fireUserId")
+        defaults.set(userId, forKey: Constants.currentUserId.rawValue)
     }
 }

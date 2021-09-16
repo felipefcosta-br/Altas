@@ -7,16 +7,26 @@
 
 import UIKit
 import MapKit
+import FirebaseAuth
 
 class MapViewController: UIViewController {
     
     @IBOutlet var mapView: MKMapView!
     
     let manager = MapDataManager()
-    
+    var selectedSpot: SpotForecastAnnotationItem?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        initialize()
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        switch segue.identifier! {
+        case Segue.showSpotFromMap.rawValue:
+            showSpotDetail(segue: segue)
+        default:
+            print("Segue não encontrado")
+        }
     }
     
 
@@ -25,11 +35,37 @@ class MapViewController: UIViewController {
 // MARK: - Private Extension
 private extension MapViewController {
     func initialize(){
+        setupBarButtons()
         manager.fetch { self.addMapSpotAnnotations($0) }
     }
-    func addMapSpotAnnotations(_ annotations: [SpotForecastAnnotationItem]) {
-        mapView.addAnnotations(annotations)
+    func setupBarButtons(){
+        let mainMenu = UIMenu(title: "", children: [
+            UIAction(title: "Sign Out", image: UIImage(named: "logout")){ action in
+                self.signOut()
+            }
+        ])
         
+        let leftNavButton = UIBarButtonItem(image: UIImage(named: "menu"), menu: mainMenu)
+        navigationItem.leftBarButtonItem = leftNavButton
+    }
+    
+    func signOut(){
+        do {
+            try Auth.auth().signOut()
+            UserDefaults.standard.removeObject(forKey: Constants.currentUserId.rawValue)
+        } catch {
+            print("Sign out error")
+        }
+    }
+        func addMapSpotAnnotations(_ annotations: [SpotForecastAnnotationItem]) {
+        mapView.addAnnotations(annotations)
+    }
+    
+    func showSpotDetail(segue: UIStoryboardSegue) {
+        if let viewController = segue.destination as? SpotForecastTableViewController,
+           let spot = selectedSpot {
+            viewController.spotId = spot.id
+        }
     }
 }
 // MARK: - MKMapViewDelegate
@@ -37,13 +73,38 @@ extension MapViewController: MKMapViewDelegate {
     
     func mapView(_ mapView: MKMapView,
                  viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        <#code#>
+        guard !annotation.isKind(of: MKUserLocation.self) else {
+            return nil
+        }
+        
+        let identifier = "spotPin"
+        var annotationView: MKAnnotationView?
+        
+        if let customAnnotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier){
+            annotationView = customAnnotationView
+            annotationView?.annotation = annotation
+        }else {
+            let newAnnotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+            newAnnotationView.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
+            annotationView = newAnnotationView
+        }
+        
+        if let annotationView = annotationView {
+            annotationView.canShowCallout = true
+            annotationView.image = UIImage(named: "spot-annotation")
+        }
+        return annotationView
     }
     
     func mapView(_ mapView: MKMapView,
                  annotationView view: MKAnnotationView,
                  calloutAccessoryControlTapped control: UIControl) {
-        <#code#>
+        guard let annotation = mapView.selectedAnnotations.first else {
+            return
+        }
+        
+        selectedSpot = annotation as? SpotForecastAnnotationItem
+        self.performSegue(withIdentifier: Segue.showSpotFromMap.rawValue, sender: self)
     }
     
 }

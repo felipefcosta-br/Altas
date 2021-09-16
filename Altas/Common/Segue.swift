@@ -14,4 +14,5 @@ enum Segue: String {
     case showSignUp
     case showSpotFromSearch
     case showFavoriteSpotDetail
+    case showSpotFromMap
 }

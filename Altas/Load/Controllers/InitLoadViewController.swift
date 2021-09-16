@@ -17,6 +17,7 @@ class InitLoadViewController: UIViewController {
         
         handle = Auth.auth().addStateDidChangeListener{ auth, user in
             if user == nil{
+                UserDefaults.standard.removeObject(forKey: Constants.currentUserId.rawValue)
                 self.performSegue(withIdentifier: Segue.showLogin.rawValue, sender: self)
             }else{
                 self.performSegue(withIdentifier: Segue.showFavoriteSpots.rawValue, sender: self)
