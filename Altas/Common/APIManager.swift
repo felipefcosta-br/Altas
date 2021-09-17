@@ -25,6 +25,10 @@ struct APIManager {
         return apiURL(endpoint: .spotSearch, parameter: filter)
     }
     
+    static func spotCitySearchURL(with filter: String) -> URL{
+        return apiURL(endpoint: .spotCitySearch, parameter: filter)
+    }
+    
     static func favoriteSpotsURL(with filter: String) -> URL{
         return apiURL(endpoint: .favoriteSpots, parameter: filter)
     }

@@ -597,8 +597,33 @@
                                 <color key="barTintColor" name="darkBlue-altas"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ex0-U7-KvF">
+                                <rect key="frame" x="0.0" y="51" width="414" height="40"/>
+                                <subviews>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="QeE-3g-Bsp">
+                                        <rect key="frame" x="8" y="4.5" width="398" height="32"/>
+                                        <color key="backgroundColor" name="darkBlue-altas"/>
+                                        <segments>
+                                            <segment title="Spot Name"/>
+                                            <segment title="City"/>
+                                        </segments>
+                                        <color key="selectedSegmentTintColor" name="blue-altas"/>
+                                        <connections>
+                                            <action selector="searchOpChange:" destination="1Zy-SJ-qlL" eventType="valueChanged" id="Fjm-Jt-Szj"/>
+                                        </connections>
+                                    </segmentedControl>
+                                </subviews>
+                                <color key="backgroundColor" name="darkBlue-altas"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="EMc-yb-bVg"/>
+                                    <constraint firstItem="QeE-3g-Bsp" firstAttribute="leading" secondItem="Ex0-U7-KvF" secondAttribute="leading" constant="8" id="Hdw-fj-tFa"/>
+                                    <constraint firstItem="QeE-3g-Bsp" firstAttribute="centerX" secondItem="Ex0-U7-KvF" secondAttribute="centerX" id="Mjy-uH-vjg"/>
+                                    <constraint firstItem="QeE-3g-Bsp" firstAttribute="centerY" secondItem="Ex0-U7-KvF" secondAttribute="centerY" id="Rkd-LY-fnG"/>
+                                    <constraint firstAttribute="trailing" secondItem="QeE-3g-Bsp" secondAttribute="trailing" constant="8" id="sc0-sz-Tqf"/>
+                                </constraints>
+                            </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3kB-NW-qXt">
-                                <rect key="frame" x="0.0" y="51" width="414" height="674"/>
+                                <rect key="frame" x="0.0" y="91" width="414" height="634"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="searchResultCell" rowHeight="60" id="Vja-Hn-fOb" customClass="SpotSearchedCell" customModule="Altas" customModuleProvider="target">
@@ -644,19 +669,22 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="3kB-NW-qXt" firstAttribute="leading" secondItem="Ajk-yj-zvx" secondAttribute="leading" id="4if-bg-lEX"/>
-                            <constraint firstItem="3kB-NW-qXt" firstAttribute="top" secondItem="HM5-xX-jJB" secondAttribute="bottom" id="BkD-kp-65M"/>
+                            <constraint firstItem="3kB-NW-qXt" firstAttribute="top" secondItem="Ex0-U7-KvF" secondAttribute="bottom" id="2Pn-LE-879"/>
                             <constraint firstAttribute="trailing" secondItem="HM5-xX-jJB" secondAttribute="trailing" id="CPs-iP-dUu"/>
                             <constraint firstItem="HM5-xX-jJB" firstAttribute="leading" secondItem="Ajk-yj-zvx" secondAttribute="leading" id="DjB-sP-KDY"/>
-                            <constraint firstItem="3kB-NW-qXt" firstAttribute="trailing" secondItem="Ajk-yj-zvx" secondAttribute="trailing" id="HR8-Pg-Az9"/>
+                            <constraint firstItem="3kB-NW-qXt" firstAttribute="leading" secondItem="Ajk-yj-zvx" secondAttribute="leading" id="Hbh-WU-kKK"/>
                             <constraint firstItem="HM5-xX-jJB" firstAttribute="top" secondItem="Ajk-yj-zvx" secondAttribute="top" id="Icg-Wb-XCN"/>
-                            <constraint firstItem="3kB-NW-qXt" firstAttribute="top" secondItem="HM5-xX-jJB" secondAttribute="bottom" id="WCV-Un-Zeq"/>
-                            <constraint firstItem="3kB-NW-qXt" firstAttribute="bottom" secondItem="Ajk-yj-zvx" secondAttribute="bottom" id="pk1-Jb-F1I"/>
+                            <constraint firstItem="3kB-NW-qXt" firstAttribute="bottom" secondItem="Ajk-yj-zvx" secondAttribute="bottom" id="TBR-rb-oa0"/>
+                            <constraint firstItem="Ex0-U7-KvF" firstAttribute="leading" secondItem="Ajk-yj-zvx" secondAttribute="leading" id="XRL-uP-zgd"/>
+                            <constraint firstItem="3kB-NW-qXt" firstAttribute="trailing" secondItem="Ajk-yj-zvx" secondAttribute="trailing" id="g94-MM-v8l"/>
+                            <constraint firstItem="Ex0-U7-KvF" firstAttribute="top" secondItem="HM5-xX-jJB" secondAttribute="bottom" id="hLP-rM-517"/>
+                            <constraint firstItem="Ajk-yj-zvx" firstAttribute="trailing" secondItem="Ex0-U7-KvF" secondAttribute="trailing" id="xOJ-Ud-njg"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="EBV-zi-2Ca"/>
                     <connections>
                         <outlet property="resultTableView" destination="3kB-NW-qXt" id="GUA-ip-ifJ"/>
+                        <outlet property="searchOpSegmentedControl" destination="QeE-3g-Bsp" id="oqZ-tc-ib0"/>
                         <outlet property="spotSearchBar" destination="HM5-xX-jJB" id="SYh-IH-Ctq"/>
                     </connections>
                 </viewController>
@@ -818,6 +846,9 @@
         <image name="wave" width="15" height="9"/>
         <image name="wind" catalog="system" width="128" height="101"/>
         <image name="windstock.symbol" width="15" height="15"/>
+        <namedColor name="blue-altas">
+            <color red="0.0" green="0.52549019607843139" blue="0.67843137254901964" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="darkBlue-altas">
             <color red="0.0" green="0.33333333333333331" blue="0.50980392156862742" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

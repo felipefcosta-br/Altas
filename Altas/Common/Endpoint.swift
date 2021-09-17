@@ -12,6 +12,7 @@ enum Endpoint: String {
     case spot = "/app/spot/"
     case spots = "/app/spots/"
     case spotSearch = "/app/spotSearch/"
+    case spotCitySearch = "/app/spotSearch/city/"
     case citySpots = "/app/citySpots/"
     case favoriteSpot = "/app/favoriteSpot/"
     case favoriteSpots = "/app/favoriteSpots/"

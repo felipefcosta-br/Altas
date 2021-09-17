@@ -43,6 +43,17 @@ class SpotAPIManager {
         task.resume()
     }
     
+    func fetchSearchSpotsCity(by searchText: String, completion: @escaping (Result<[SpotItem], Error>) -> Void){
+        let url = APIManager.spotCitySearchURL(with: searchText)
+        let request = URLRequest(url: url)
+        
+        let task = session.dataTask(with: request) { (data, response, error) in
+            let result = self.processSpotRequest(data: data, error: error)
+            completion(result)
+        }
+        task.resume()
+    }
+    
     func fetchSpot(by spotId: String, completion: @escaping (Result<[SpotForecastItem], Error>) -> Void){
         let url = APIManager.spotURL(with: spotId)
         let request = URLRequest(url: url)

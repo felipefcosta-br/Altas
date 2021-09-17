@@ -12,6 +12,7 @@ class SpotSerachViewController: UIViewController {
 
     @IBOutlet var resultTableView: UITableView!
     @IBOutlet var spotSearchBar: UISearchBar!
+    @IBOutlet var searchOpSegmentedControl: UISegmentedControl!
     
     let manager = SpotsSerachDataManager()
     // let searchController = UISearchController()
@@ -32,6 +33,24 @@ class SpotSerachViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         //searchController.searchResultsUpdater = self
         //navigationItem.searchController = searchController
+        let titleSegementeAtt = [NSAttributedString.Key.foregroundColor: UIColor(named: "light-gray-altas")]
+        searchOpSegmentedControl.setTitleTextAttributes(titleSegementeAtt as [NSAttributedString.Key : Any], for: .selected)
+        searchOpSegmentedControl.setTitleTextAttributes(titleSegementeAtt as [NSAttributedString.Key : Any], for: .normal)
+    }
+    
+    @IBAction func searchOpChange(_ sender: UISegmentedControl) {
+        guard let searchText = spotSearchBar.searchTextField.text,
+              !searchText.isEmpty else {
+            return
+        }
+        switch sender.selectedSegmentIndex.self {
+        case 0:
+            loadSpotNameSearch(searchText: searchText)
+        case 1:
+            loadCitySearch(searchText: searchText)
+        default:
+            print("Erro na opção \(sender.selectedSegmentIndex.self)")
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -87,8 +106,8 @@ private extension SpotSerachViewController {
         }
     }
     
-    func loadSearch(searchText: String){
-        manager.fetch(by: searchText) { _ in
+    func loadSpotNameSearch(searchText: String){
+        manager.fetchSearchBySpotName(by: searchText) { _ in
             
             if self.manager.numberOfItems() > 0 {
                 self.resultTableView.backgroundView = nil
@@ -99,6 +118,20 @@ private extension SpotSerachViewController {
             self.resultTableView.reloadData()
         }
     }
+    
+    func loadCitySearch(searchText: String){
+        manager.fetchSearchByCity(by: searchText) { _ in
+            
+            if self.manager.numberOfItems() > 0 {
+                self.resultTableView.backgroundView = nil
+            }else{
+                self.setSearchSpotXIB(message: "Your search did not match any Spot!")
+            }
+            
+            self.resultTableView.reloadData()
+        }
+    }
+    
     func setSearchSpotXIB(message: String){
         let view = NoDataView(frame: CGRect(x: 0,
                                             y: 0,
@@ -138,7 +171,13 @@ extension SpotSerachViewController: UISearchBarDelegate {
               !searchText.isEmpty else {
             return
         }
-        self.loadSearch(searchText: searchText)
+        
+        if searchOpSegmentedControl.selectedSegmentIndex.self == 0 {
+            self.loadSpotNameSearch(searchText: searchText)
+        }else {
+            self.loadCitySearch(searchText: searchText)
+        }
+        
     }
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.text = ""
