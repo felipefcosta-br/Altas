@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="58q-B6-BH3">
-                                <rect key="frame" x="52" y="272" width="310" height="262"/>
+                                <rect key="frame" x="52" y="317" width="310" height="262"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="xS3-Oh-u67">
                                         <rect key="frame" x="0.0" y="0.0" width="310" height="34"/>
@@ -93,7 +93,7 @@
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="58q-B6-BH3" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leadingMargin" constant="32" id="LfU-O9-FFs"/>
-                            <constraint firstItem="58q-B6-BH3" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" multiplier="0.9" id="bif-Pw-aI3"/>
+                            <constraint firstItem="58q-B6-BH3" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="bif-Pw-aI3"/>
                             <constraint firstAttribute="trailingMargin" secondItem="58q-B6-BH3" secondAttribute="trailing" constant="32" id="iLg-Ey-BpA"/>
                             <constraint firstItem="58q-B6-BH3" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="lz0-Ic-yJd"/>
                         </constraints>

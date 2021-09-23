@@ -47,7 +47,6 @@ private extension MapViewController {
                 self.locationManager.startUpdatingLocation()
                 if let userCoord = self.mapView.userLocation.location?.coordinate{
                     self.mapView.setCenter(userCoord, animated: true)
-                    self.createCoordinateRegion(with: userCoord)
                 }
                 
             }
@@ -109,23 +108,6 @@ private extension MapViewController {
         geoParam = geoParam.appending("/")
         geoParam = geoParam.appending(String(distanceKM))
         manager.fetch(geoFilter: geoParam) { self.addMapSpotAnnotations($0)}
-    }
-    
-    func createCoordinateRegion(with coords: CLLocationCoordinate2D){
-        
-        var center = coords
-        let polyline = MKPolyline(coordinates: &center, count: 1)
-        var region = MKCoordinateRegion(polyline.boundingMapRect)
-        region.span = MKCoordinateSpan(latitudeDelta: 0.8, longitudeDelta: 0.8)
-    }
-    
-    func convertToCoordinate(mapPoint: MKMapRect){
-        
-        let neMapPoint = MKMapPoint(x: mapPoint.maxX, y: mapPoint.origin.y)
-        print("teste point - \(neMapPoint.coordinate)")
-        let swMapPoint = MKMapPoint(x:mapPoint.origin.x, y: mapPoint.maxY)
-        print("teste point - \(swMapPoint.coordinate)")
-        
     }
 }
 // MARK: - MKMapViewDelegate
