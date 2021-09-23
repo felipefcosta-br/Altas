@@ -122,7 +122,7 @@ class SpotForecastTableViewController: UITableViewController {
         let waveHeight = oneDigitsFormatter.string(from: NSNumber(value: spot.waveHeight?.noaa ?? 0.0))
         waveSizeLabel.text = "\(waveHeight!)"
         swellDirectionLabel.text =
-            convertDecimalDegreestoCompassPoints(degrees: (spot.swellDirection?.noaa)!)
+            CardinalDirectionConverter.convertDecimalDegreestoCardinalDirection(degrees: (spot.swellDirection?.noaa)!)
         
         let wavePeriod = oneDigitsFormatter.string(from: NSNumber(value: spot.wavePeriod?.noaa ?? 0.0))
         periodLabel.text = "\(wavePeriod!)"
@@ -133,7 +133,7 @@ class SpotForecastTableViewController: UITableViewController {
         let windSpeed = oneDigitsFormatter.string(from: NSNumber(value: spot.windSpeed?.noaa ?? 0.0))
         windSpeedLabel.text = "\(windSpeed!)"
         
-        windDirectionLabel.text = convertDecimalDegreestoCompassPoints(degrees: (spot.windDirection?.noaa)!)
+        windDirectionLabel.text = CardinalDirectionConverter.convertDecimalDegreestoCardinalDirection(degrees: (spot.windDirection?.noaa)!)
         
         
         spot.highTide?.forEach({ tideItem in
@@ -184,28 +184,6 @@ class SpotForecastTableViewController: UITableViewController {
         
         return "\(tideHeight)m - \(hour):\(minutes)"
         
-    }
-    
-    private func convertDecimalDegreestoCompassPoints(degrees: Double) -> String{
-        if (degrees >= 337.5 && degrees <= 360) || (degrees >= 0 && degrees <= 22.4){
-            return IntercardinalPoints.N.rawValue
-        }else if degrees >= 22.5 && degrees <= 67.4{
-            return IntercardinalPoints.NE.rawValue
-        }else if degrees >= 67.5 && degrees <= 112.4{
-            return IntercardinalPoints.L.rawValue
-        }else if degrees >= 112.5 && degrees <= 157.4{
-            return IntercardinalPoints.SE.rawValue
-        }else if degrees >= 157.5 && degrees <= 202.4{
-            return IntercardinalPoints.S.rawValue
-        }else if degrees >= 202.5 && degrees <= 247.4{
-            return IntercardinalPoints.SO.rawValue
-        }else if degrees >= 247.5 && degrees <= 292.4{
-            return IntercardinalPoints.O.rawValue
-        }else if degrees >= 292.5 && degrees <= 337.4{
-            return IntercardinalPoints.NO.rawValue
-        }else{
-            return "Invalid point"
-        }
     }
     
     private func addFavoriteSpot(){

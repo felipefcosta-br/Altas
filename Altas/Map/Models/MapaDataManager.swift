@@ -15,14 +15,14 @@ class MapDataManager {
         return items
     }
     
-    func fetch(completion: @escaping (_ item: [SpotForecastAnnotationItem]) -> Void){
-        SpotAPIManager.shared.fetchAllSpots() {
+    func fetch(geoFilter: String, completion: @escaping (_ item: [SpotForecastAnnotationItem]) -> Void){
+        SpotAPIManager.shared.fetchLocalSpots(geoFilter: geoFilter) {
             (spotResult) in
             switch spotResult {
             case let .success(spots):
                 self.items = spots
             case let .failure(error):
-                print("Erro na pesquisa: \(error)")
+                print("Erro na busca: \(error)")
             }
             DispatchQueue.main.async {
                 completion(self.items)

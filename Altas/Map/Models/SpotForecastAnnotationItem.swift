@@ -47,7 +47,8 @@ class SpotForecastAnnotationItem: NSObject, Codable, MKAnnotation {
             nf.maximumFractionDigits = 1
             return nf
         }()
-        let waveH =  "\(oneDigitsFormatter.string(from: NSNumber(value: waveHeight?.noaa ?? 0.0))!)m"
+        let sweelD = CardinalDirectionConverter.convertDecimalDegreestoCardinalDirection(degrees: swellDirection?.noaa ?? 180)
+        let waveH =  "\(oneDigitsFormatter.string(from: NSNumber(value: waveHeight?.noaa ?? 0.0))!)m \(sweelD)"
         return waveH
     }
     

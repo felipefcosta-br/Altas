@@ -45,6 +45,7 @@
 		BCC6220026EA136B003A1EE5 /* SpotsSerachDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC621FF26EA136B003A1EE5 /* SpotsSerachDataManager.swift */; };
 		BCC6220226EA2474003A1EE5 /* SpotSearchedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC6220126EA2474003A1EE5 /* SpotSearchedCell.swift */; };
 		BCCB96FF26EA780C00B2740B /* SpotForecastItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCB96FE26EA780C00B2740B /* SpotForecastItem.swift */; };
+		BCCF8F8926F7D4EB001B54B6 /* CardinalDirectionConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCF8F8826F7D4EB001B54B6 /* CardinalDirectionConverter.swift */; };
 		BCDAA31026E89488006814F2 /* ResponseItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCDAA30F26E89488006814F2 /* ResponseItem.swift */; };
 		BCE2FF7126CD06C9002D549D /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE2FF7026CD06C9002D549D /* SignupViewController.swift */; };
 		BCF8529E26EF55DB00DD5F7C /* IntercardinalPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF8529D26EF55DB00DD5F7C /* IntercardinalPoints.swift */; };
@@ -99,6 +100,7 @@
 		BCC621FF26EA136B003A1EE5 /* SpotsSerachDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotsSerachDataManager.swift; sourceTree = "<group>"; };
 		BCC6220126EA2474003A1EE5 /* SpotSearchedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotSearchedCell.swift; sourceTree = "<group>"; };
 		BCCB96FE26EA780C00B2740B /* SpotForecastItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotForecastItem.swift; sourceTree = "<group>"; };
+		BCCF8F8826F7D4EB001B54B6 /* CardinalDirectionConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardinalDirectionConverter.swift; sourceTree = "<group>"; };
 		BCDAA30F26E89488006814F2 /* ResponseItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseItem.swift; sourceTree = "<group>"; };
 		BCE2FF7026CD06C9002D549D /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		BCF8529D26EF55DB00DD5F7C /* IntercardinalPoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntercardinalPoints.swift; sourceTree = "<group>"; };
@@ -437,6 +439,7 @@
 				BC10F23326F1F94D006FE114 /* FavoriteSpotAPIManager.swift */,
 				BCFA6FB626F3637700667A65 /* FavoriteSpotForecastItem.swift */,
 				BCFA6FB826F3649800667A65 /* ForecastItems.swift */,
+				BCCF8F8826F7D4EB001B54B6 /* CardinalDirectionConverter.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -621,6 +624,7 @@
 				BCC621FE26EA0A9E003A1EE5 /* SpotAPIManager.swift in Sources */,
 				BCBA55C626E754590065232D /* Endpoint.swift in Sources */,
 				BC676FC026C7BB60004CD02F /* SceneDelegate.swift in Sources */,
+				BCCF8F8926F7D4EB001B54B6 /* CardinalDirectionConverter.swift in Sources */,
 				BCFA6FB726F3637700667A65 /* FavoriteSpotForecastItem.swift in Sources */,
 				BCFA6FBF26F39A2E00667A65 /* SpotForecastAnnotationItem.swift in Sources */,
 				BCC6220026EA136B003A1EE5 /* SpotsSerachDataManager.swift in Sources */,

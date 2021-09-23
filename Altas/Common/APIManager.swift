@@ -17,8 +17,8 @@ struct APIManager {
         return apiURL(endpoint: .spot, parameter: filter)
     }
     
-    static func spotsURL() -> URL{
-        return apiURL(endpoint: .spots)
+    static func spotsURL(with filter: String? = nil) -> URL{
+        return apiURL(endpoint: .spots, parameter: filter)
     }
     
     static func spotSearchURL(with filter: String) -> URL{

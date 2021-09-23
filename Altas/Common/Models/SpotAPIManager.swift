@@ -20,8 +20,8 @@ class SpotAPIManager {
         return URLSession(configuration: config)
     }()
     
-    func fetchAllSpots(completion: @escaping (Result<[SpotForecastAnnotationItem], Error>) -> Void){
-        let url = APIManager.spotsURL()
+    func fetchLocalSpots(geoFilter: String, completion: @escaping (Result<[SpotForecastAnnotationItem], Error>) -> Void){
+        let url = APIManager.spotsURL(with: geoFilter)
         let request = URLRequest(url: url)
         
         let task = session.dataTask(with: request) { (data, response, error) in

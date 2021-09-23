@@ -7,14 +7,17 @@
 
 import UIKit
 import MapKit
+import CoreLocation
 import FirebaseAuth
 
 class MapViewController: UIViewController {
     
     @IBOutlet var mapView: MKMapView!
     
+    let locationManager = CLLocationManager()
     let manager = MapDataManager()
     var selectedSpot: SpotForecastAnnotationItem?
+    let distanceKM = 500
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,8 +39,22 @@ class MapViewController: UIViewController {
 private extension MapViewController {
     func initialize(){
         setupBarButtons()
-        manager.fetch { self.addMapSpotAnnotations($0) }
+        checkLocationPermission { isGranted in
+            if isGranted{
+                //self.manager.fetch { self.addMapSpotAnnotations($0) }
+                self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
+                self.locationManager.distanceFilter = kCLDistanceFilterNone
+                self.locationManager.startUpdatingLocation()
+                if let userCoord = self.mapView.userLocation.location?.coordinate{
+                    self.mapView.setCenter(userCoord, animated: true)
+                    self.createCoordinateRegion(with: userCoord)
+                }
+                
+            }
+        }
+        
     }
+    
     func setupBarButtons(){
         let mainMenu = UIMenu(title: "", children: [
             UIAction(title: "Sign Out", image: UIImage(named: "logout")){ action in
@@ -57,7 +74,8 @@ private extension MapViewController {
             print("Sign out error")
         }
     }
-        func addMapSpotAnnotations(_ annotations: [SpotForecastAnnotationItem]) {
+    
+    func addMapSpotAnnotations(_ annotations: [SpotForecastAnnotationItem]) {
         mapView.addAnnotations(annotations)
     }
     
@@ -66,6 +84,48 @@ private extension MapViewController {
            let spot = selectedSpot {
             viewController.spotId = spot.id
         }
+    }
+    
+    func checkLocationPermission(completion: @escaping (_ isGranted: Bool) -> Void) {
+        
+        switch self.locationManager.authorizationStatus {
+        case .denied:
+            completion(false)
+            break
+        case .authorizedAlways, .authorizedWhenInUse:
+            completion(true)
+        case .notDetermined:
+            locationManager.requestWhenInUseAuthorization()
+
+        default:
+        fatalError("Status não identificado")
+        }
+    }
+    
+    func startFetchSpots(latitude: Double, longitude: Double){
+        
+        var geoParam = "\(latitude)/"
+        geoParam = geoParam.appending(String(longitude))
+        geoParam = geoParam.appending("/")
+        geoParam = geoParam.appending(String(distanceKM))
+        manager.fetch(geoFilter: geoParam) { self.addMapSpotAnnotations($0)}
+    }
+    
+    func createCoordinateRegion(with coords: CLLocationCoordinate2D){
+        
+        var center = coords
+        let polyline = MKPolyline(coordinates: &center, count: 1)
+        var region = MKCoordinateRegion(polyline.boundingMapRect)
+        region.span = MKCoordinateSpan(latitudeDelta: 0.8, longitudeDelta: 0.8)
+    }
+    
+    func convertToCoordinate(mapPoint: MKMapRect){
+        
+        let neMapPoint = MKMapPoint(x: mapPoint.maxX, y: mapPoint.origin.y)
+        print("teste point - \(neMapPoint.coordinate)")
+        let swMapPoint = MKMapPoint(x:mapPoint.origin.x, y: mapPoint.maxY)
+        print("teste point - \(swMapPoint.coordinate)")
+        
     }
 }
 // MARK: - MKMapViewDelegate
@@ -107,4 +167,11 @@ extension MapViewController: MKMapViewDelegate {
         self.performSegue(withIdentifier: Segue.showSpotFromMap.rawValue, sender: self)
     }
     
+    func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
+        let center = mapView.center
+        let centerCoord = mapView.convert(center, toCoordinateFrom: mapView)
+        startFetchSpots(latitude: centerCoord.latitude, longitude: centerCoord.longitude)
+        
+        
+    }
 }
