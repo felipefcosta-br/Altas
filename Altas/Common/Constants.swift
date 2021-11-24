@@ -7,6 +7,6 @@
 
 import Foundation
 enum Constants: String {
-    case baseURL = "https://us-central1-altas-50346.cloudfunctions.net"
+    case baseURL = ""
     case currentUserId = "fireUserId"
 }
